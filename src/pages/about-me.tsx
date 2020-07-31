@@ -1,9 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import {useTranslation} from 'react-i18next';
 
+export default function AboutMe() {
+  const {t} = useTranslation();
 
-export function AboutMe() {
   return (
-    <h1>XD</h1>
-  )
+    <h1>{t('description')}</h1>
+  );
 }

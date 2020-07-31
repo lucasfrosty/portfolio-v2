@@ -5,12 +5,14 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, {Suspense} from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+
 import "./layout.css"
+import '../utilities/i18n';
 
 export function Layout({ children }) {
   const data = useStaticQuery(graphql`
@@ -24,7 +26,7 @@ export function Layout({ children }) {
   `)
 
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -40,7 +42,7 @@ export function Layout({ children }) {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
-    </>
+    </Suspense>
   )
 }
 
