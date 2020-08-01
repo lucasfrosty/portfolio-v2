@@ -1,4 +1,2 @@
-enum AvailableLocales {
-  pt = 'pt',
-  en = 'en',
-}
+export {i18n} from './i18n'
+export {Routes} from './routes'
