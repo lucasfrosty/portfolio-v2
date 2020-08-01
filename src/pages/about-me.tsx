@@ -1,7 +1,6 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 
-
 import MenDog from "../images/men-dog.png"
 import Me from "../images/me.jpg"
 import { Circle, Social } from '../components';
