@@ -23,7 +23,6 @@ i18n
       pt: {translation: pt},
     },
     fallbackLng: 'en',
-    lng: 'en',
     debug: true,
   });
 

@@ -23,7 +23,6 @@ export default function AboutMe() {
           <img src={Me} width="400" style={{borderRadius: '100%', border: '3px solid white', boxShadow: '14px 19px 0px 5px rgba(94,31,196,0.7)'}} />
         </div>
       </div>
-      {/* <div style={{position: 'absolute', bottom: '0%', right: '50%'}}><img src={MenDog} width="400px" alt="A dog smiling in a party hat" /></div> */}
     </div>
   );
 }

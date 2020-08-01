@@ -27,7 +27,7 @@ export function Social() {
   return (
     <SocialWrapper>
       {socialMedias.map(media => (
-        <AccessibleLink {...media} />
+        <AccessibleLink key={media.description} {...media} />
       ))}
     </SocialWrapper>
   )
