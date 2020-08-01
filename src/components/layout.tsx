@@ -1,7 +1,6 @@
 import React, { Suspense } from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import {Header} from "./header"
 import '../utilities/i18n';
 import { GlobalStyle, globalWrapperMargin } from "../styles";
 

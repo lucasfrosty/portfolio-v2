@@ -20,7 +20,6 @@ export function Header() {
       <div
         style={{
           ...globalWrapperMargin,
-          maxWidth: 960,
           padding: `1.45rem 1.0875rem`,
         }}
       >
@@ -41,5 +40,3 @@ export function Header() {
     </Navbar>
   )
 }
-
-export default Header

@@ -7,13 +7,14 @@ export const GlobalStyleComponent = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: 'Baloo 2', Helvetica, Sans-Serif;
+    height: 100vh;
   }
 `;
 
 export const globalWrapperMargin: React.CSSProperties = {
-  margin: '10px 5%',
-  maxWidth: 960,
-};  
+  margin: '0 15%',
+  maxWidth: 1280,
+};
 
 export function GlobalStyle() {
   return (

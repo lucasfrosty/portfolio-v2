@@ -1,10 +1,35 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 
+
+import MenDog from "../images/men-dog.png"
+import Me from "../images/me.jpg"
+import { Circle } from '../components';
+
+
 export default function AboutMe() {
   const {t} = useTranslation();
 
   return (
-    <h1>{t('description')}</h1>
+    <div style={{position: "relative", marginTop: 60}}>
+      <div style={{display: 'flex'}}>
+        <div style={{width: '100%', maxWidth: 500}}>
+          <h1 style={{fontWeight: 600, marginBottom: 0}}>Lucas Ferreira</h1>
+          <p style={{color: '#464646', margin: 0, fontSize: 18}}>{t('description')}</p>
+          <p style={{color: '#464646', margin: 0, fontSize: 18}}>{t('description2')}</p>
+          <p style={{color: '#464646', fontSize: 18}}>{t('description3')}</p>
+        </div>
+        <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
+          <img src={Me} width="400" style={{borderRadius: '100%', border: '3px solid white', boxShadow: '14px 19px 0px 5px rgba(94,31,196,0.7)'}} />
+        </div>
+      </div>
+      {/* <div style={{position: 'absolute', bottom: '0%', right: '50%'}}><img src={MenDog} width="400px" alt="A dog smiling in a party hat" /></div> */}
+      <div style={{position: 'fixed', bottom: -150, left: -130}}>
+        <Circle size={300} />
+      </div>
+      <div style={{position: 'fixed', top: -90, right: -130}}>
+        <Circle size={300} />
+      </div>
+    </div>
   );
 }
