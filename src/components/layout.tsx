@@ -45,7 +45,7 @@ const ContentWrapper = styled.div`
 
 export function Layout({ children }: Props) {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <>
       <GlobalStyle />
       <Header />
       <ContentWrapper style={globalWrapperMargin}>
@@ -67,7 +67,7 @@ export function Layout({ children }: Props) {
         </FixedPosition>
         <Social />
       </ContentWrapper>
-    </Suspense>
+    </>
   )
 }
 

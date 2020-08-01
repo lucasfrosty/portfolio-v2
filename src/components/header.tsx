@@ -76,17 +76,17 @@ export function Header() {
     {
       content: t("aboutMe"),
       url: Routes.Index,
-      isActive: location.pathname === Routes.Index,
+      isActive: isActiveRoute(Routes.Index),
     },
     {
       content: "Blog",
       url: Routes.Blog,
-      isActive: location.pathname === Routes.Blog,
+      isActive: isActiveRoute(Routes.Blog),
     },
     {
       content: t("work"),
       url: Routes.Work,
-      isActive: location.pathname === Routes.Work,
+      isActive: isActiveRoute(Routes.Work),
     },
   ]
 
@@ -104,4 +104,13 @@ export function Header() {
       </LanguageSwitcherWrapper>
     </Navbar>
   )
+
+  function isActiveRoute(route: Routes) {
+    const isSSR = typeof window === 'undefined';
+    if (isSSR) {
+      return false;
+    }
+
+    return location.pathname === route;
+  }
 }
