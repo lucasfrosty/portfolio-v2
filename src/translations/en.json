@@ -1,7 +1,9 @@
 {
-  "description": "Hello my name is Lucas Ferreira. I'm a front end developer.",
-  "description2": "I'm from Brazil but i'm currently based in Ottawa, Canada working at Shopify.",
-  "description3": "I'm passionated about engineering and also a UX enthusiast, always trying to learn and advocate for the best practices on both worlds.",
+  "description": "Hello! My name is Lucas Ferreira. I'm a Front end developer.",
+  "description2": "I'm from Brazil but currently i'm based in Ottawa, Canada working at <1>Shopify.</1>",
+  "description3": "I'm passionated about programming and also a UX enthusiast, always trying to learn and advocate for the best practices on both worlds.",
   "skills": "Skills",
-  "aboutMe": "About me"
+  "aboutMe": "About me",
+  "work": "Work",
+  "workDescription": "Those are the main technologies i'm using right now, but i'm always open to learn and explore new ones. For more information check out <1>Work</1>."
 }

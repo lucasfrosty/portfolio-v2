@@ -12,7 +12,8 @@ export const GlobalStyleComponent = createGlobalStyle`
 `;
 
 export const globalWrapperMargin: React.CSSProperties = {
-  margin: '0 15%',
+  margin: '0 auto',
+  padding: 30,
   maxWidth: 1280,
 };
 

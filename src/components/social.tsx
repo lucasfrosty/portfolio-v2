@@ -10,6 +10,14 @@ const SocialWrapper = styled.div`
   position: fixed;
   bottom: 10px;
   right: 30px;
+  padding: 5px 10px;
+  display: flex;
+  
+  @media only screen and (max-width: 1000px) {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: -9px 20px 39px -7px rgba(0,0,0,0.20);
+  }
 
   & > :not(:first-child) {
     padding-left: 10px; 
