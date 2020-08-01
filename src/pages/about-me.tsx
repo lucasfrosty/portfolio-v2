@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 
 import MenDog from "../images/men-dog.png"
 import Me from "../images/me.jpg"
-import { Circle } from '../components';
+import { Circle, Social } from '../components';
 
 
 export default function AboutMe() {
@@ -24,12 +24,6 @@ export default function AboutMe() {
         </div>
       </div>
       {/* <div style={{position: 'absolute', bottom: '0%', right: '50%'}}><img src={MenDog} width="400px" alt="A dog smiling in a party hat" /></div> */}
-      <div style={{position: 'fixed', bottom: -150, left: -130}}>
-        <Circle size={300} />
-      </div>
-      <div style={{position: 'fixed', top: -90, right: -130}}>
-        <Circle size={300} />
-      </div>
     </div>
   );
 }
