@@ -36,7 +36,7 @@ const halfBorderBottom = `
   }
 `
 
-const StyledLink = styled(props => <Link {...props} />)`
+const StyledLink = styled(({isActive, ...props}) => <Link {...props} />)`
   color: #383838;
   text-decoration: none;
   font-weight: 600;
@@ -62,13 +62,7 @@ const StyledLink = styled(props => <Link {...props} />)`
   }
 `
 
-const LanguageSwitcherWrapper = styled.span`
-  display: flex;
 
-  @media only screen and (min-width: 1450px) and (max-width: 1670px) {
-    padding-right: 10%;
-  }
-`
 
 export function Header() {
   const { t } = useTranslation()
@@ -94,14 +88,12 @@ export function Header() {
     <Navbar style={globalWrapperMargin}>
       <div>
         {links.map(({ content, url, isActive }) => (
-          <StyledLink to={url} isActive={isActive}>
+          <StyledLink key={url} to={url} isActive={isActive}>
             {content}
           </StyledLink>
         ))}
       </div>
-      <LanguageSwitcherWrapper>
-        <LanguageSwitcherButton />
-      </LanguageSwitcherWrapper>
+      <LanguageSwitcherButton />
     </Navbar>
   )
 

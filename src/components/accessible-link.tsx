@@ -1,9 +1,10 @@
 import React from "react"
 import { VisuallyHidden } from "../styles"
 import styled from "styled-components";
+import Img, { FixedObject } from "gatsby-image"
 
 export interface Props {
-  src: any;
+  fixed: FixedObject;
   description: string;
   url: string;
 }
@@ -13,10 +14,10 @@ const Link = styled.a`
   align-items: center;
 `
 
-export function AccessibleLink({ src, description, url }: Props) {
+export function AccessibleLink({ fixed, description, url }: Props) {
   return (
     <Link id="menu-trigger" target="_blank" href={url}>
-      <img aria-hidden={true} width={32} height={32} src={src} />
+      <Img aria-hidden fixed={fixed} />
       <VisuallyHidden>{description}</VisuallyHidden>
     </Link>
   );

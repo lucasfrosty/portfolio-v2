@@ -1,4 +1,4 @@
-import React, { Suspense } from "react"
+import React from "react"
 
 import { Header } from "./header"
 import "../utilities/i18n"

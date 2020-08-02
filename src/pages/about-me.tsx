@@ -1,17 +1,9 @@
 import React from "react"
 import { useTranslation, Trans } from "react-i18next"
-
-import MenDog from "../images/men-dog.png"
-import Me from "../images/me.jpg"
-import ReactLogo from "../images/react.svg"
-import ReduxLogo from "../images/redux.png"
-import ApolloLogo from "../images/apollo.png"
-import GraphQLLogo from "../images/graphql.png"
-import RailsLogo from "../images/rails.png"
-import MenWriting from "../images/men-writing.png"
-import { Circle, Social } from "../components"
-import { Link } from "gatsby"
+import Img, { FixedObject } from 'gatsby-image';
 import styled from "styled-components"
+
+import { Link, graphql, useStaticQuery } from "gatsby"
 import { colors, breakPointsInPx } from "../styles"
 import { Routes } from "../utilities"
 
@@ -49,8 +41,7 @@ const ImageWrapper = styled.div`
     margin-bottom: 40px;
   }
 `
-
-const RoundedImage = styled.img`
+const RoundedImage = styled((props) => <Img {...props} />)`
   border-radius: 100%;
   border: 3px solid white;
   box-shadow: 14px 19px 0px 5px ${colors.primary};
@@ -79,11 +70,11 @@ const Text = styled.p<{caption?: boolean}>`
   font-size: ${props => props.caption ? 15 : 18}px;
 `
 interface SkillLogo {
-  src: string
-  width?: number
-  height?: number
-  marginLeft?: number
-  alt: string
+  fixed: FixedObject;
+  width?: number;
+  height?: number;
+  marginLeft?: number;
+  alt: string;
 }
 
 const LogoImg = styled.img<Omit<SkillLogo, "src">>`
@@ -96,16 +87,69 @@ const SecondHeader = styled.h2`
   color: ${colors.primary};
 `
 
-const skillListLogos: SkillLogo[] = [
-  { src: ReactLogo, width: 35, marginLeft: 0, alt: "React.js logo" },
-  { src: ReduxLogo, marginLeft: 13, alt: "Redux logo" },
-  { src: GraphQLLogo, alt: "GraphQL logo" },
-  { src: ApolloLogo, marginLeft: 11, alt: "Apollo logo" },
-  { src: RailsLogo, marginLeft: 8, alt: "Ruby on Rails logo" },
-]
+export const query = graphql`
+  query {
+    ReactLogo: file(relativePath: { eq: "react.png" }) {
+      childImageSharp {
+        fixed(width: 35, height: 32) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+
+    ReduxLogo: file(relativePath: { eq: "redux.png" }) {
+      childImageSharp {
+        fixed(width: 32, height: 32) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+
+    GraphQLLogo: file(relativePath: { eq: "graphql.png" }) {
+      childImageSharp {
+        fixed(width: 32, height: 32) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+
+    ApolloLogo: file(relativePath: { eq: "apollo.png" }) {
+      childImageSharp {
+        fixed(width: 32, height: 32) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+
+    RailsLogo: file(relativePath: { eq: "rails.png" }) {
+      childImageSharp {
+        fixed(width: 32, height: 32) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+
+    Me: file(relativePath: { eq: "me.jpg" }) {
+      childImageSharp {
+        fixed(width: 400, height: 400) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`
 
 export default function AboutMe() {
   const { t, i18n } = useTranslation()
+  const {ReactLogo, ReduxLogo, GraphQLLogo, ApolloLogo, RailsLogo, Me} = useStaticQuery(query)
+
+  const skillListLogos: SkillLogo[] = [
+    { fixed: ReactLogo.childImageSharp.fixed, marginLeft: 0, alt: "React.js logo" },
+    { fixed: ReduxLogo.childImageSharp.fixed, marginLeft: 13, alt: "Redux logo" },
+    { fixed: GraphQLLogo.childImageSharp.fixed, alt: "GraphQL logo" },
+    { fixed: ApolloLogo.childImageSharp.fixed, marginLeft: 11, alt: "Apollo logo" },
+    { fixed: RailsLogo.childImageSharp.fixed, marginLeft: 8, alt: "Ruby on Rails logo" },
+  ]
 
   const shopifyLink =
     i18n.language === "pt"
@@ -129,14 +173,8 @@ export default function AboutMe() {
           <div>
             <div>
               {skillListLogos.map(
-                ({ src, width = 32, height = 32, marginLeft = 15, alt }) => (
-                  <LogoImg
-                    src={src}
-                    alt={alt}
-                    marginLeft={marginLeft}
-                    width={width}
-                    height={height}
-                  />
+                ({ fixed, marginLeft = 15, alt }) => (
+                  <Img alt={alt} fixed={fixed} style={{marginLeft}} />
                 )
               )}
             </div>
@@ -153,7 +191,7 @@ export default function AboutMe() {
         </div>
       </DescriptionWrapper>
       <ImageWrapper>
-        <RoundedImage src={Me} />
+        <RoundedImage fixed={Me.childImageSharp.fixed} alt="My photo" />
       </ImageWrapper>
     </SectionWrapper>
   )
