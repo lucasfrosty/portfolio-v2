@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import React from "react"
 
 import { globalWrapperMargin, colors } from "../styles"
-import { Routes } from "../utilities"
+import { Routes } from "../utilities/routes"
 import { useTranslation } from "react-i18next"
 import styled from "styled-components"
 import { LanguageSwitcherButton } from "./language-switcher-button"

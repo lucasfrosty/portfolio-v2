@@ -24,6 +24,9 @@ i18n
     },
     fallbackLng: 'en',
     debug: true,
+    react: {
+      useSuspense: false,
+    },
   });
 
 export {i18n};

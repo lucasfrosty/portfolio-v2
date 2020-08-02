@@ -5,7 +5,7 @@ import styled from "styled-components"
 
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { colors, breakPointsInPx } from "../styles"
-import { Routes } from "../utilities"
+import { Routes } from "../utilities/routes"
 
 const SectionWrapper = styled.div`
   display: flex;
