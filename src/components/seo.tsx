@@ -8,6 +8,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { useTranslation } from "react-i18next"
 
 interface Props {
   description?: string;
@@ -16,7 +17,8 @@ interface Props {
   title: string; 
 }
 
-export function SEO({ description = '', lang = 'en', meta = [], title }: Props) {
+export function SEO({ description = '', meta = [], title }: Props) {
+  const {i18n} = useTranslation();
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -36,10 +38,10 @@ export function SEO({ description = '', lang = 'en', meta = [], title }: Props) 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: i18n.language,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`${site.siteMetadata.title} | %s`}
       meta={[
         {
           name: `description`,

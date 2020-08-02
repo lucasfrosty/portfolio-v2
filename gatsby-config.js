@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `lucasfrosty | About me`,
-    description: `Lucas Ferreira is  a Web Developer and this is his portfolio.`,
+    title: `lucasfrosty`,
+    description: `Lucas Ferreira is a Web Developer and this is his portfolio.`,
     author: `@lucasfrosty`,
   },
   plugins: [

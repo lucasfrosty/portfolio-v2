@@ -5,5 +5,6 @@
   "skills": "Habilidades",
   "aboutMe": "Sobre mim",
   "work": "Trabalho",
-  "workDescription": "Essas são as principais tecnologias que eu estou usando agora, mas sempre estou aberto a aprender e explorar coisas novas. Para mais informações veja <1>Trabalho</1>."
+  "workDescription": "Essas são as principais tecnologias que eu estou usando agora, mas sempre estou aberto a aprender e explorar coisas novas. Para mais informações veja <1>Trabalho</1>.",
+  "aboutMePageTitle": "Sobre mim"
 }

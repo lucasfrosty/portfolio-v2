@@ -6,6 +6,7 @@ import styled from "styled-components"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { colors, breakPointsInPx } from "../styles"
 import { Routes } from "../utilities/routes"
+import { SEO } from "../components";
 
 const SectionWrapper = styled.div`
   display: flex;
@@ -157,6 +158,8 @@ export default function AboutMe() {
       : "https://www.shopify.com"
 
   return (
+    <>
+    <SEO title={t('aboutMePageTitle')} />
     <SectionWrapper>
       <DescriptionWrapper>
         <NameHeader>Lucas Ferreira</NameHeader>
@@ -194,5 +197,6 @@ export default function AboutMe() {
         <RoundedImage fixed={Me.childImageSharp.fixed} alt="My photo" />
       </ImageWrapper>
     </SectionWrapper>
+    </>
   )
 }

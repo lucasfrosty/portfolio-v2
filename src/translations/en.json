@@ -5,5 +5,6 @@
   "skills": "Skills",
   "aboutMe": "About me",
   "work": "Work",
-  "workDescription": "Those are the main technologies i'm using right now, but i'm always open to learn and explore new ones. For more information check out <1>Work</1>."
+  "workDescription": "Those are the main technologies i'm using right now, but i'm always open to learn and explore new ones. For more information check out <1>Work</1>.",
+  "aboutMePageTitle": "About me"
 }
