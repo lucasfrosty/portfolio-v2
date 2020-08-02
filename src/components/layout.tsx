@@ -4,7 +4,7 @@ import { Header } from "./header"
 import "../utilities/i18n"
 import { GlobalStyle, globalWrapperMargin, breakPointsInPx } from "../styles"
 import { Circle } from "./circle"
-import { Social } from "./Social"
+import { SocialMedias } from "./social-medias";
 import styled from "styled-components"
 
 interface Props {
@@ -65,7 +65,7 @@ export function Layout({ children }: Props) {
         >
           <Circle size={300} />
         </FixedPosition>
-        <Social />
+        <SocialMedias />
       </ContentWrapper>
     </>
   )

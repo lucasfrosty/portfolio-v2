@@ -2,7 +2,6 @@ import React from "react"
 import { AccessibleLink, Props as AccessibleLinkProps } from "./accessible-link"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
-import Img from 'gatsby-image';
 
 
 const SocialWrapper = styled.div`
@@ -59,7 +58,7 @@ export const query = graphql`
   }
 `
 
-export function Social() {
+export function SocialMedias() {
   const { GithubLogo, LinkedinLogo, MediumLogo, InstagramLogo } = useStaticQuery(query)
 
   const socialMedias: AccessibleLinkProps[] = [
