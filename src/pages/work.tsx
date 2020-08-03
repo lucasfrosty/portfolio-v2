@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import {graphql, useStaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
 
-import {Layout, Text, Title} from '../components';
+import {Layout, Text, Title, SEO} from '../components';
 
 export const query = graphql`
   query {
@@ -37,10 +37,12 @@ const TextWrapper = styled.div`
 `;
 
 export default function Blog() {
+  const {t} = useTranslation();
   const {MenWorking} = useStaticQuery(query);
 
   return (
     <Layout>
+      <SEO title={t('work')} />
       <Wrapper>
         <TextWrapper>
           <Title>Work</Title>

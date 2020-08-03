@@ -4,7 +4,7 @@ import {useTranslation, Trans} from 'react-i18next';
 import {Link, graphql, useStaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
 
-import {Layout, Text, Post, SpacedWrapper, Title} from '../components';
+import {Layout, Text, Post, SpacedWrapper, Title, SEO} from '../components';
 import {posts} from '../utilities/posts';
 
 export const query = graphql`
@@ -51,6 +51,7 @@ export default function Blog() {
 
   return (
     <Layout>
+      <SEO title="Blog" />
       <Wrapper>
         <TextWrapper>
           <Title>Blog</Title>
