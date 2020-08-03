@@ -5,3 +5,4 @@ export {Circle} from './circle';
 export {LanguageSwitcherButton} from './language-switcher-button';
 export {Text} from './text';
 export {Post} from './post';
+export {SpacedWrapper} from './spaced-wrapper';

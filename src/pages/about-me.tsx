@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import {colors, breakPointsInPx} from '../utilities/styles';
 import {Route} from '../utilities/routes';
-import {SEO, Text} from '../components';
+import {SEO, Text, Layout, SpacedWrapper} from '../components';
 
 const SectionWrapper = styled.div`
   display: flex;
@@ -63,6 +63,7 @@ const NameHeader = styled.h1`
   margin-bottom: 0;
   color: ${colors.primary};
 `;
+
 interface SkillLogo {
   fixed: FixedObject;
   width?: number;
@@ -73,14 +74,6 @@ interface SkillLogo {
 
 const SecondHeader = styled.h2`
   color: ${colors.primary};
-`;
-
-const SpacedComponent = styled.div<{margin: string; atBreakpoint?: number}>`
-  margin: ${(props) => (props.atBreakpoint ? 0 : props.margin || 0)};
-
-  @media only screen and (max-width: ${(props) => props.atBreakpoint}px) {
-    margin: ${(props) => props.margin};
-  }
 `;
 
 export const query = graphql`
@@ -196,19 +189,19 @@ export default function AboutMe() {
   /* eslint-enable */
 
   return (
-    <>
+    <Layout>
       <SEO title={t('aboutMePageTitle')} />
       <SectionWrapper>
         <DescriptionWrapper>
           <NameHeader>Lucas Ferreira</NameHeader>
           <Text>{t('description')}</Text>
-          <SpacedComponent margin="25px 0 0 0" atBreakpoint={550}>
+          <SpacedWrapper margin="25px 0 0 0" atBreakpoint={550}>
             <Text>{translatedDescription2}</Text>
-          </SpacedComponent>
-          <SpacedComponent margin="30px 0 0 0">
+          </SpacedWrapper>
+          <SpacedWrapper margin="30px 0 0 0">
             <Text>{t('description3')}</Text>
-          </SpacedComponent>
-          <SpacedComponent margin="80px 0 0 0">
+          </SpacedWrapper>
+          <SpacedWrapper margin="80px 0 0 0">
             <SecondHeader>{t('skills')}</SecondHeader>
             <div>
               <div>
@@ -216,16 +209,16 @@ export default function AboutMe() {
                   <Img alt={alt} key={alt} fixed={fixed} style={{marginLeft}} />
                 ))}
               </div>
-              <SpacedComponent margin="25px 0 0 0">
+              <SpacedWrapper margin="25px 0 0 0">
                 <Text caption>{translatedWorkDescription}</Text>
-              </SpacedComponent>
+              </SpacedWrapper>
             </div>
-          </SpacedComponent>
+          </SpacedWrapper>
         </DescriptionWrapper>
         <ImageWrapper>
           <RoundedImage fixed={Me.childImageSharp.fixed} alt="My photo" />
         </ImageWrapper>
       </SectionWrapper>
-    </>
+    </Layout>
   );
 }

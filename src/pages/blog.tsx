@@ -4,7 +4,7 @@ import {useTranslation, Trans} from 'react-i18next';
 import {Link, graphql, useStaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
 
-import {Layout, Text, Post} from '../components';
+import {Layout, Text, Post, SpacedWrapper} from '../components';
 import {colors} from '../utilities/styles';
 import {posts} from '../utilities/posts';
 
@@ -33,6 +33,15 @@ const ImageWrapper = styled.div`
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const TextWrapper = styled.div`
+  max-width: 600px;
+`;
+
 export default function Blog() {
   const {t, i18n} = useTranslation();
   const {MenWriting} = useStaticQuery(query);
@@ -47,15 +56,8 @@ export default function Blog() {
 
   return (
     <Layout>
-      <div
-        style={{
-          display: 'flex',
-          // justifyContent: 'flex-start',
-          flex: '1 1 0px',
-          width: '100%',
-        }}
-      >
-        <div style={{maxWidth: 600}}>
+      <Wrapper>
+        <TextWrapper>
           <Title>Blog</Title>
           <Text>
             <Trans i18nKey="whyMedium">
@@ -69,16 +71,16 @@ export default function Blog() {
             {t('reasonToWriteInPortuguese')} {textAboutTranslation}
           </Text>
 
-          <div style={{marginTop: 40}}>
+          <SpacedWrapper margin="40px 0 0 0">
             {posts.map((post) => (
               <Post key={post.title} {...post} />
             ))}
-          </div>
-        </div>
+          </SpacedWrapper>
+        </TextWrapper>
         <ImageWrapper>
           <Img fixed={MenWriting.childImageSharp.fixed} />
         </ImageWrapper>
-      </div>
+      </Wrapper>
     </Layout>
   );
 }
