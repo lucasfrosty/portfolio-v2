@@ -29,7 +29,7 @@ const FixedPosition = styled.div<FixedPositionProps>`
   top: ${(props) => `${props.top}px`};
   left: ${(props) => `${props.left}px`};
   right: ${(props) => `${props.right}px`};
-  z-index: -1;
+  z-index: 2;
 
   @media only screen and (max-width: ${(props) =>
       props.disappearOnViewportWidth}px) {

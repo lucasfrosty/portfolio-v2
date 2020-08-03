@@ -1,5 +1,6 @@
 export const colors = {
   primary: '#6c66e3',
+  text: '#464646',
 };
 
 export const breakPointsInPx = {

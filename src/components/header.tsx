@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import {Route} from '../utilities/routes';
 import {globalWrapperMargin, colors} from '../utilities/styles';
+import {isSSR} from '../utilities/constants';
 
 import {LanguageSwitcherButton} from './language-switcher-button';
 
@@ -97,7 +98,6 @@ export function Header() {
   );
 
   function isActiveRoute(route: Route) {
-    const isSSR = typeof window === 'undefined';
     if (isSSR) {
       return false;
     }

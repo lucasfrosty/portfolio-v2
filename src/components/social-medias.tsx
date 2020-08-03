@@ -18,7 +18,7 @@ const SocialWrapper = styled.div`
   }
 
   & > :not(:first-child) {
-    padding-left: 10px;
+    margin-left: 10px;
   }
 `;
 

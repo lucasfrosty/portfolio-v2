@@ -1,21 +1,50 @@
 import React from 'react';
-import {Link} from 'gatsby';
+import {Link, graphql, useStaticQuery} from 'gatsby';
+import Img from 'gatsby-image';
 
 import {MediumPost} from '../utilities/posts';
 import {i18n} from '../utilities/i18n';
+import {colors} from '../utilities/styles';
+
+export const query = graphql`
+  query {
+    Calendar: file(relativePath: {eq: "calendar.png"}) {
+      childImageSharp {
+        fixed(width: 14, height: 14) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`;
 
 interface Props extends MediumPost {}
 
 export function Post({date, title, url}: Props) {
+  const {Calendar} = useStaticQuery(query);
+
   return (
-    <div>
+    <div
+      style={{
+        marginBottom: 20,
+        borderLeft: `1px dashed ${colors.text}`,
+        paddingLeft: 10,
+        fontSize: 17,
+      }}
+    >
       <Link to={url}>{title}</Link>
-      <div>
-        {date.toLocaleDateString(i18n.language, {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric',
-        })}
+      <div style={{display: 'flex', alignItems: 'center'}}>
+        <Img
+          imgStyle={{ariaHidden: true}}
+          fixed={Calendar.childImageSharp.fixed}
+        />
+        <p style={{margin: '0 0 0 5px', fontSize: 13}}>
+          {date.toLocaleDateString(i18n.language, {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          })}
+        </p>
       </div>
     </div>
   );
