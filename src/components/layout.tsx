@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 import '../utilities/i18n';
-import {GlobalStyle, globalWrapperMargin, breakPointsInPx} from '../styles';
+import {globalWrapperMargin, breakPointsInPx} from '../utilities/styles';
 
 import {Header} from './header';
 import {Circle} from './circle';
 import {SocialMedias} from './social-medias';
+import {GlobalStyle} from './global-style';
 
 interface Props {
   children: React.ReactNode;

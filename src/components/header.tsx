@@ -4,7 +4,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components';
 
 import {Route} from '../utilities/routes';
-import {globalWrapperMargin, colors} from '../styles';
+import {globalWrapperMargin, colors} from '../utilities/styles';
 
 import {LanguageSwitcherButton} from './language-switcher-button';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {colors} from '../styles';
+import {colors} from '../utilities/styles';
 
 interface Props {
   size: number;

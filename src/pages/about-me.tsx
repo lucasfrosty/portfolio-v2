@@ -4,9 +4,9 @@ import Img, {FixedObject} from 'gatsby-image';
 import {Link, graphql, useStaticQuery} from 'gatsby';
 import styled from 'styled-components';
 
-import {colors, breakPointsInPx} from '../styles';
+import {colors, breakPointsInPx} from '../utilities/styles';
 import {Route} from '../utilities/routes';
-import {SEO} from '../components';
+import {SEO, Text} from '../components';
 
 const SectionWrapper = styled.div`
   display: flex;
@@ -63,12 +63,6 @@ const NameHeader = styled.h1`
   font-weight: 600;
   margin-bottom: 0;
   color: ${colors.primary};
-`;
-
-const Text = styled.p<{caption?: boolean}>`
-  color: #464646;
-  font-size: ${(props) => (props.caption ? 15 : 18)}px;
-  margin: 0;
 `;
 interface SkillLogo {
   fixed: FixedObject;

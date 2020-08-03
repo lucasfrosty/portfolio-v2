@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Img, {FixedObject} from 'gatsby-image';
 
-import {VisuallyHidden} from '../styles';
+import {VisuallyHidden} from './visually-hidden';
 
 export interface Props {
   fixed: FixedObject;
