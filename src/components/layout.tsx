@@ -45,6 +45,10 @@ const FixedPosition = styled.div<FixedPositionProps>`
 const ContentWrapper = styled.div`
   padding: 0 1.0875rem 1.45rem;
   position: relative;
+
+  @media only screen and (max-width: 1000px) {
+    margin-bottom: 40px !important;
+  }
 `;
 
 export function Layout({children}: Props) {

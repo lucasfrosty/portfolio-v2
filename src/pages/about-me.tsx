@@ -10,7 +10,7 @@ import {SEO, Text} from '../components';
 
 const SectionWrapper = styled.div`
   display: flex;
-  margin-top: 60px;
+  margin-top: 10px;
 
   @media only screen and (max-width: ${breakPointsInPx.aboutMe}px) {
     flex-direction: column;
@@ -28,7 +28,6 @@ const DescriptionWrapper = styled.div`
 
   @media only screen and (max-width: ${breakPointsInPx.aboutMe}px) {
     order: 2;
-    padding-bottom: 40px;
   }
 `;
 
