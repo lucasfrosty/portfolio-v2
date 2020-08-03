@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link, graphql, useStaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
+import styled from 'styled-components';
 
 import {MediumPost} from '../utilities/posts';
 import {i18n} from '../utilities/i18n';
@@ -18,34 +19,44 @@ export const query = graphql`
   }
 `;
 
+const ComponentWrapper = styled.div`
+  margin-bottom: 20px;
+  border-left: 1px dashed ${colors.text};
+  padding-left: 10px;
+  font-size: 17px;
+`;
+
+const DateWrapper = styled.div`
+  display: flex;
+  align-items: center;
+
+  & > p {
+    margin: 0 0 0 5px;
+    font-size: 13px;
+  }
+`;
+
 interface Props extends MediumPost {}
 
 export function Post({date, title, url}: Props) {
   const {Calendar} = useStaticQuery(query);
 
   return (
-    <div
-      style={{
-        marginBottom: 20,
-        borderLeft: `1px dashed ${colors.text}`,
-        paddingLeft: 10,
-        fontSize: 17,
-      }}
-    >
+    <ComponentWrapper>
       <Link to={url}>{title}</Link>
-      <div style={{display: 'flex', alignItems: 'center'}}>
+      <DateWrapper>
         <Img
           imgStyle={{ariaHidden: true}}
           fixed={Calendar.childImageSharp.fixed}
         />
-        <p style={{margin: '0 0 0 5px', fontSize: 13}}>
+        <p>
           {date.toLocaleDateString(i18n.language, {
             day: 'numeric',
             month: 'long',
             year: 'numeric',
           })}
         </p>
-      </div>
-    </div>
+      </DateWrapper>
+    </ComponentWrapper>
   );
 }

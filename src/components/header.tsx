@@ -53,6 +53,12 @@ const StyledLink = styled(({isActive, ...props}) => <Link {...props} />)`
     color: ${colors.primary};
   }
 
+  &:active,
+  &:focus {
+    color: #383838;
+    text-decoration: none;
+  }
+
   ${(props) => (props.isActive ? halfBorderBottom : null)}
 
   @media only screen and (max-width: 400px) {
