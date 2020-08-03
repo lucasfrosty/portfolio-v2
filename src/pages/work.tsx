@@ -1,7 +1,55 @@
 import React from 'react';
+import styled from 'styled-components';
+import {useTranslation} from 'react-i18next';
+import {graphql, useStaticQuery} from 'gatsby';
+import Img from 'gatsby-image';
 
-import {Layout} from '../components';
+import {Layout, Text, Title} from '../components';
 
-export default function Work() {
-  return <Layout>work</Layout>;
+export const query = graphql`
+  query {
+    MenWorking: file(relativePath: {eq: "men-working.png"}) {
+      childImageSharp {
+        fixed(width: 550) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`;
+
+const ImageWrapper = styled.div`
+  z-index: 1;
+  margin: auto;
+
+  @media only screen and (max-width: 1000px) {
+    display: none;
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const TextWrapper = styled.div`
+  max-width: 600px;
+`;
+
+export default function Blog() {
+  const {MenWorking} = useStaticQuery(query);
+
+  return (
+    <Layout>
+      <Wrapper>
+        <TextWrapper>
+          <Title>Work</Title>
+          <Text>Work list</Text>
+        </TextWrapper>
+        <ImageWrapper>
+          <Img fixed={MenWorking.childImageSharp.fixed} />
+        </ImageWrapper>
+      </Wrapper>
+    </Layout>
+  );
 }

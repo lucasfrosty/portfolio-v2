@@ -4,13 +4,8 @@ import {useTranslation, Trans} from 'react-i18next';
 import {Link, graphql, useStaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
 
-import {Layout, Text, Post, SpacedWrapper} from '../components';
-import {colors} from '../utilities/styles';
+import {Layout, Text, Post, SpacedWrapper, Title} from '../components';
 import {posts} from '../utilities/posts';
-
-const Title = styled.h1`
-  color: ${colors.primary};
-`;
 
 export const query = graphql`
   query {
