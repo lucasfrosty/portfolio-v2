@@ -1,12 +1,12 @@
-import React from "react"
-import { useTranslation, Trans } from "react-i18next"
-import Img, { FixedObject } from "gatsby-image"
-import styled from "styled-components"
+import React from 'react';
+import {useTranslation, Trans} from 'react-i18next';
+import Img, {FixedObject} from 'gatsby-image';
+import {Link, graphql, useStaticQuery} from 'gatsby';
+import styled from 'styled-components';
 
-import { Link, graphql, useStaticQuery } from "gatsby"
-import { colors, breakPointsInPx } from "../styles"
-import { Routes } from "../utilities/routes"
-import { SEO } from "../components"
+import {colors, breakPointsInPx} from '../styles';
+import {Route} from '../utilities/routes';
+import {SEO} from '../components';
 
 const SectionWrapper = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ const SectionWrapper = styled.div`
 
     margin-top: 0;
   }
-`
+`;
 
 const DescriptionWrapper = styled.div`
   width: 100%;
@@ -30,7 +30,7 @@ const DescriptionWrapper = styled.div`
     order: 2;
     padding-bottom: 40px;
   }
-`
+`;
 
 const ImageWrapper = styled.div`
   width: 100%;
@@ -41,8 +41,8 @@ const ImageWrapper = styled.div`
     order: 1;
     margin-bottom: 40px;
   }
-`
-const RoundedImage = styled(props => <Img {...props} />)`
+`;
+const RoundedImage = styled((props) => <Img {...props} />)`
   border-radius: 100%;
   border: 3px solid white;
   box-shadow: 14px 19px 0px 5px ${colors.primary};
@@ -57,42 +57,42 @@ const RoundedImage = styled(props => <Img {...props} />)`
   @media only screen and (max-width: 400px) {
     width: 250px;
   }
-`
+`;
 
 const NameHeader = styled.h1`
   font-weight: 600;
   margin-bottom: 0;
   color: ${colors.primary};
-`
+`;
 
 const Text = styled.p<{caption?: boolean}>`
   color: #464646;
-  font-size: ${props => (props.caption ? 15 : 18)}px;
+  font-size: ${(props) => (props.caption ? 15 : 18)}px;
   margin: 0;
-`
+`;
 interface SkillLogo {
-  fixed: FixedObject
-  width?: number
-  height?: number
-  marginLeft?: number
-  alt: string
+  fixed: FixedObject;
+  width?: number;
+  height?: number;
+  marginLeft?: number;
+  alt: string;
 }
 
 const SecondHeader = styled.h2`
   color: ${colors.primary};
-`
+`;
 
-const SpacedComponent = styled.div<{ margin: string, atBreakpoint?: number }>`
-  margin: ${props => props.atBreakpoint ? 0 : (props.margin || 0)};
+const SpacedComponent = styled.div<{margin: string; atBreakpoint?: number}>`
+  margin: ${(props) => (props.atBreakpoint ? 0 : props.margin || 0)};
 
-  @media only screen and (max-width: ${props => props.atBreakpoint}px) {
-    margin: ${props => props.margin};
+  @media only screen and (max-width: ${(props) => props.atBreakpoint}px) {
+    margin: ${(props) => props.margin};
   }
-`
+`;
 
 export const query = graphql`
   query {
-    ReactLogo: file(relativePath: { eq: "react.png" }) {
+    ReactLogo: file(relativePath: {eq: "react.png"}) {
       childImageSharp {
         fixed(width: 35, height: 32) {
           ...GatsbyImageSharpFixed
@@ -100,7 +100,7 @@ export const query = graphql`
       }
     }
 
-    ReduxLogo: file(relativePath: { eq: "redux.png" }) {
+    ReduxLogo: file(relativePath: {eq: "redux.png"}) {
       childImageSharp {
         fixed(width: 32, height: 32) {
           ...GatsbyImageSharpFixed
@@ -108,7 +108,7 @@ export const query = graphql`
       }
     }
 
-    GraphQLLogo: file(relativePath: { eq: "graphql.png" }) {
+    GraphQLLogo: file(relativePath: {eq: "graphql.png"}) {
       childImageSharp {
         fixed(width: 32, height: 32) {
           ...GatsbyImageSharpFixed
@@ -116,7 +116,7 @@ export const query = graphql`
       }
     }
 
-    ApolloLogo: file(relativePath: { eq: "apollo.png" }) {
+    ApolloLogo: file(relativePath: {eq: "apollo.png"}) {
       childImageSharp {
         fixed(width: 32, height: 32) {
           ...GatsbyImageSharpFixed
@@ -124,7 +124,7 @@ export const query = graphql`
       }
     }
 
-    RailsLogo: file(relativePath: { eq: "rails.png" }) {
+    RailsLogo: file(relativePath: {eq: "rails.png"}) {
       childImageSharp {
         fixed(width: 32, height: 32) {
           ...GatsbyImageSharpFixed
@@ -132,7 +132,7 @@ export const query = graphql`
       }
     }
 
-    Me: file(relativePath: { eq: "me.jpg" }) {
+    Me: file(relativePath: {eq: "me.jpg"}) {
       childImageSharp {
         fixed(width: 400, height: 400) {
           ...GatsbyImageSharpFixed
@@ -140,10 +140,10 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 export default function AboutMe() {
-  const { t, i18n } = useTranslation()
+  const {t, i18n} = useTranslation();
   const {
     ReactLogo,
     ReduxLogo,
@@ -151,69 +151,80 @@ export default function AboutMe() {
     ApolloLogo,
     RailsLogo,
     Me,
-  } = useStaticQuery(query)
+  } = useStaticQuery(query);
 
   const skillListLogos: SkillLogo[] = [
     {
       fixed: ReactLogo.childImageSharp.fixed,
       marginLeft: 0,
-      alt: "React.js logo",
+      alt: 'React.js logo',
     },
     {
       fixed: ReduxLogo.childImageSharp.fixed,
       marginLeft: 13,
-      alt: "Redux logo",
+      alt: 'Redux logo',
     },
-    { fixed: GraphQLLogo.childImageSharp.fixed, alt: "GraphQL logo" },
+    {fixed: GraphQLLogo.childImageSharp.fixed, alt: 'GraphQL logo'},
     {
       fixed: ApolloLogo.childImageSharp.fixed,
       marginLeft: 11,
-      alt: "Apollo logo",
+      alt: 'Apollo logo',
     },
     {
       fixed: RailsLogo.childImageSharp.fixed,
       marginLeft: 8,
-      alt: "Ruby on Rails logo",
+      alt: 'Ruby on Rails logo',
     },
-  ]
+  ];
 
   const shopifyLink =
-    i18n.language === "pt"
-      ? "https://www.shopify.com.br"
-      : "https://www.shopify.com"
+    i18n.language === 'pt'
+      ? 'https://www.shopify.com.br'
+      : 'https://www.shopify.com';
+
+  /* eslint-disable */
+  const translatedDescription2 = (
+    <Trans i18nKey="description2">
+      I'm from Brazil but currently i'm based in Ottawa, Canada working at
+      <Link target="_blank" to={shopifyLink}>
+        Shopify
+      </Link>
+      .
+    </Trans>
+  );
+
+  const translatedWorkDescription = (
+    <Trans i18nKey="workDescription">
+      Those are the main technologies i'm using right now, but i'm always open
+      to learn and explore new ones. For more information check out
+      <Link to={Route.Work}>Work</Link>.
+    </Trans>
+  );
+  /* eslint-enable */
 
   return (
     <>
-      <SEO title={t("aboutMePageTitle")} />
+      <SEO title={t('aboutMePageTitle')} />
       <SectionWrapper>
         <DescriptionWrapper>
           <NameHeader>Lucas Ferreira</NameHeader>
-          <Text>{t("description")}</Text>
+          <Text>{t('description')}</Text>
           <SpacedComponent margin="25px 0 0 0" atBreakpoint={550}>
-            <Text>
-              <Trans i18nKey="description2">
-                I'm from Brazil but currently i'm based in Ottawa, Canada working
-                at <Link target="_blank" to={shopifyLink}>Shopify</Link>.
-              </Trans>
-            </Text>
+            <Text>{translatedDescription2}</Text>
           </SpacedComponent>
-          <SpacedComponent margin="30px 0 0 0"><Text>{t("description3")}</Text></SpacedComponent>
+          <SpacedComponent margin="30px 0 0 0">
+            <Text>{t('description3')}</Text>
+          </SpacedComponent>
           <SpacedComponent margin="80px 0 0 0">
-            <SecondHeader>{t("skills")}</SecondHeader>
+            <SecondHeader>{t('skills')}</SecondHeader>
             <div>
               <div>
-                {skillListLogos.map(({ fixed, marginLeft = 15, alt }) => (
-                  <Img alt={alt} fixed={fixed} style={{ marginLeft }} />
+                {skillListLogos.map(({fixed, marginLeft = 15, alt}) => (
+                  <Img alt={alt} key={alt} fixed={fixed} style={{marginLeft}} />
                 ))}
               </div>
               <SpacedComponent margin="25px 0 0 0">
-                <Text caption>
-                  <Trans i18nKey="workDescription">
-                    Those are the main technologies i'm using right now, but i'm
-                    always open to learn and explore new ones. For more
-                    information check out <Link to={Routes.Work}>Work</Link>.
-                  </Trans>
-                </Text>
+                <Text caption>{translatedWorkDescription}</Text>
               </SpacedComponent>
             </div>
           </SpacedComponent>
@@ -223,5 +234,5 @@ export default function AboutMe() {
         </ImageWrapper>
       </SectionWrapper>
     </>
-  )
+  );
 }

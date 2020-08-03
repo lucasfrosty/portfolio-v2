@@ -1,16 +1,17 @@
-import { Link } from "gatsby"
-import React from "react"
+import {Link} from 'gatsby';
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import styled from 'styled-components';
 
-import { globalWrapperMargin, colors } from "../styles"
-import { Routes } from "../utilities/routes"
-import { useTranslation } from "react-i18next"
-import styled from "styled-components"
-import { LanguageSwitcherButton } from "./language-switcher-button"
+import {Route} from '../utilities/routes';
+import {globalWrapperMargin, colors} from '../styles';
+
+import {LanguageSwitcherButton} from './language-switcher-button';
 
 interface LinkProperties {
-  content: string
-  url: Routes
-  isActive: boolean
+  content: string;
+  url: Route;
+  isActive: boolean;
 }
 
 export const Navbar = styled.nav`
@@ -20,11 +21,11 @@ export const Navbar = styled.nav`
   min-height: 40;
   align-items: center;
   justify-content: space-between;
-`
+`;
 
 const halfBorderBottom = `
   &::after {
-    background-color: ${colors.primary}; 
+    background-color: ${colors.primary};
     bottom: 0;
     content: '';
     display: block;
@@ -34,7 +35,7 @@ const halfBorderBottom = `
     transform: translate(-50%,0);
     width: 50%;
   }
-`
+`;
 
 const StyledLink = styled(({isActive, ...props}) => <Link {...props} />)`
   color: #383838;
@@ -51,7 +52,7 @@ const StyledLink = styled(({isActive, ...props}) => <Link {...props} />)`
     color: ${colors.primary};
   }
 
-  ${props => (props.isActive ? halfBorderBottom : null)}
+  ${(props) => (props.isActive ? halfBorderBottom : null)}
 
   @media only screen and (max-width: 400px) {
     font-size: 13px;
@@ -60,34 +61,32 @@ const StyledLink = styled(({isActive, ...props}) => <Link {...props} />)`
       margin-left: 20px;
     }
   }
-`
-
-
+`;
 
 export function Header() {
-  const { t } = useTranslation()
+  const {t} = useTranslation();
   const links: LinkProperties[] = [
     {
-      content: t("aboutMe"),
-      url: Routes.Index,
-      isActive: isActiveRoute(Routes.Index),
+      content: t('aboutMe'),
+      url: Route.Index,
+      isActive: isActiveRoute(Route.Index),
     },
     {
-      content: "Blog",
-      url: Routes.Blog,
-      isActive: isActiveRoute(Routes.Blog),
+      content: 'Blog',
+      url: Route.Blog,
+      isActive: isActiveRoute(Route.Blog),
     },
     {
-      content: t("work"),
-      url: Routes.Work,
-      isActive: isActiveRoute(Routes.Work),
+      content: t('work'),
+      url: Route.Work,
+      isActive: isActiveRoute(Route.Work),
     },
-  ]
+  ];
 
   return (
     <Navbar style={globalWrapperMargin}>
       <div>
-        {links.map(({ content, url, isActive }) => (
+        {links.map(({content, url, isActive}) => (
           <StyledLink key={url} to={url} isActive={isActive}>
             {content}
           </StyledLink>
@@ -95,9 +94,9 @@ export function Header() {
       </div>
       <LanguageSwitcherButton />
     </Navbar>
-  )
+  );
 
-  function isActiveRoute(route: Routes) {
+  function isActiveRoute(route: Route) {
     const isSSR = typeof window === 'undefined';
     if (isSSR) {
       return false;

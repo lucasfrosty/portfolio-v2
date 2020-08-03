@@ -1,7 +1,8 @@
-import React from "react"
-import { VisuallyHidden } from "../styles"
-import styled from "styled-components";
-import Img, { FixedObject } from "gatsby-image"
+import React from 'react';
+import styled from 'styled-components';
+import Img, {FixedObject} from 'gatsby-image';
+
+import {VisuallyHidden} from '../styles';
 
 export interface Props {
   fixed: FixedObject;
@@ -12,9 +13,9 @@ export interface Props {
 const Link = styled.a`
   display: flex;
   align-items: center;
-`
+`;
 
-export function AccessibleLink({ fixed, description, url }: Props) {
+export function AccessibleLink({fixed, description, url}: Props) {
   return (
     <Link id="menu-trigger" target="_blank" href={url}>
       <Img aria-hidden fixed={fixed} />
