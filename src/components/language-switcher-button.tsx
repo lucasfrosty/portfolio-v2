@@ -72,7 +72,7 @@ export function LanguageSwitcherButton() {
 
   return (
     <Wrapper>
-      <ResetedButton {...buttonOptions} />
+      <ResetedButton role="button" {...buttonOptions} />
     </Wrapper>
   );
 }
