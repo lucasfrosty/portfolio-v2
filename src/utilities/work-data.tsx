@@ -1,6 +1,7 @@
+import React from 'react';
 import {FixedObject} from 'gatsby-image';
-import {useTranslation} from 'react-i18next';
-import {useStaticQuery, graphql} from 'gatsby';
+import {useTranslation, Trans} from 'react-i18next';
+import {useStaticQuery, graphql, Link} from 'gatsby';
 
 export interface JobPosition {
   name: string;
@@ -14,7 +15,7 @@ export interface Company {
   name: string;
   logo: FixedObject;
   jobPositions: JobPosition[];
-  description: string;
+  descriptions: (string | React.ReactNode)[];
 }
 
 export const workDataQuery = graphql`
@@ -37,13 +38,56 @@ export const workDataQuery = graphql`
   }
 `;
 
+function getLinksMarkup(language: string) {
+  const transformedLanguage = language === 'pt' ? 'pt-BR' : language;
+
+  return [
+    {
+      url: `https://help.shopify.com/${transformedLanguage}/manual/shipping/setting-up-and-managing-your-shipping/shipping-profiles`,
+      name: 'Shipping profiles',
+    },
+    {
+      url: `https://help.shopify.com/${transformedLanguage}/manual/shipping/setting-up-and-managing-your-shipping/local-methods/local-delivery`,
+      name: 'Local delivery',
+    },
+    {
+      url: `https://apps.shopify.com/offset`,
+      name: 'Offset app',
+    },
+    {
+      url: `https://help.shopify.com/${transformedLanguage}/manual/shipping/shopify-shipping/shipping-labels/return-labels`,
+      name: 'Return labels',
+    },
+  ];
+}
+
 export function useWorkData() {
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
   const {ShopifyLogo, FirstILogo} = useStaticQuery(workDataQuery);
+
+  const linksArray = getLinksMarkup(i18n.language);
+  const [
+    profilesLink,
+    localDeliveryLink,
+    offsetAppLink,
+    returnLabelsLink,
+  ] = linksArray.map(({url, name}) => (
+    <Link to={url} target="_blank" key={name}>
+      {name}
+    </Link>
+  ));
+
+  const secondDescription = (
+    <>
+      {t('ShopifyDescription.second')} {profilesLink}, {localDeliveryLink},{' '}
+      {offsetAppLink}, {returnLabelsLink}.
+    </>
+  );
+
   const shopify: Company = {
     name: 'Shopify',
     logo: ShopifyLogo.childImageSharp.fixed,
-    description: 'adoaijsdoias',
+    descriptions: [t('ShopifyDescription.first'), secondDescription],
     jobPositions: [
       {
         name: 'Senior Web Developer',
@@ -72,7 +116,7 @@ export function useWorkData() {
   const firstI: Company = {
     name: '1STi',
     logo: FirstILogo.childImageSharp.fixed,
-    description: 'adoaijsdoias',
+    descriptions: [t('1STiDescription.first')],
     jobPositions: [
       {
         name: 'Front End Developer Intern',

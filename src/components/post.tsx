@@ -43,7 +43,9 @@ export function Post({date, title, url}: Props) {
 
   return (
     <ComponentWrapper>
-      <Link to={url}>{title}</Link>
+      <Link target="_blank" to={url}>
+        {title}
+      </Link>
       <DateWrapper>
         <Img
           imgStyle={{ariaHidden: true}}

@@ -59,7 +59,10 @@ export default function Blog() {
             <Trans i18nKey="whyMedium">
               I&apos;m too lazy to implement a blog myself so i&apos;ll be doing
               my posts on
-              <Link to="https://medium.com/@lucasfrosty">Medium</Link>.
+              <Link to="https://medium.com/@lucasfrosty" target="_blank">
+                Medium
+              </Link>
+              .
             </Trans>
           </Text>
 

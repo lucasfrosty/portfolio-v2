@@ -31,10 +31,11 @@ const ImageWrapper = styled.div`
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
+  margin-bottom: 40px;
 `;
 
 const TextWrapper = styled.div`
-  max-width: 380px;
+  max-width: 480px;
   width: 100%;
 `;
 

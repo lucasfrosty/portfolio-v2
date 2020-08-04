@@ -22,5 +22,12 @@
     "yearPluralMonthPlural": "{{yearCount}} years and {{monthCount}} months",
     "yearSingularMonthPlural": "{{yearCount}} year and {{monthCount}} months",
     "yearSingularMonthSingular": "{{yearCount}} year and {{monthCount}} month"
+  },
+  "ShopifyDescription": {
+    "first": "Working on the Shipping team, my primary job is to help developers and UXers to plan and develop user interfaces for more than a million merchants around the world. The main technologies i use are React, GraphQL, Apollo, Typescript and Polaris. Also, when necessary, i work in the back-end using Ruby on Rails, but my primary focus is on the front-end.",
+    "second": "Some projects i was proudly a part of: "
+  },
+  "1STiDescription": {
+    "first": "Developing the UI of projects using modern Front end technologies such as: React, Redux, styled-components, RxJS, Firebase, WebRTC and pusherjs"
   }
 }

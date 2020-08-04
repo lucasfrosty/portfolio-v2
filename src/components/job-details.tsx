@@ -7,7 +7,6 @@ import {Company, JobPosition} from '../utilities/work-data';
 import {capitalize} from '../utilities/string';
 import {
   monthDifferenceBetweenDates,
-  dateTransformer,
   useDateTransformer,
 } from '../utilities/dates';
 
@@ -48,7 +47,9 @@ export function JobDetails({company}: Props) {
   const dateTransformer = useDateTransformer();
   return (
     <JobDetailsWrapper>
-      <Img fixed={company.logo} />
+      <div>
+        <Img fixed={company.logo} />
+      </div>
       <CompanyInfoWrapper>
         <CompanyNameWrapper>{company.name}</CompanyNameWrapper>
         <Text caption>{calculateTimeAtCompany(company.jobPositions)}</Text>
@@ -68,6 +69,11 @@ export function JobDetails({company}: Props) {
             </div>
           ))}
         </PositionsWrapper>
+        <div style={{fontSize: 15, marginTop: 20}}>
+          {company.descriptions.map((description, index) => (
+            <p key={description}>{description}</p>
+          ))}
+        </div>
       </CompanyInfoWrapper>
     </JobDetailsWrapper>
   );
