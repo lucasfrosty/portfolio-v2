@@ -11,6 +11,7 @@ import {GlobalStyle} from './global-style';
 
 interface Props {
   children: React.ReactNode;
+  paddingOverride?: string;
 }
 
 interface FixedPositionProps {
@@ -51,12 +52,17 @@ const ContentWrapper = styled.div`
   }
 `;
 
-export function Layout({children}: Props) {
+export function Layout({children, paddingOverride}: Props) {
   return (
     <>
       <GlobalStyle />
       <Header />
-      <ContentWrapper style={globalWrapperMargin}>
+      <ContentWrapper
+        style={{
+          ...globalWrapperMargin,
+          ...(paddingOverride && {padding: paddingOverride}),
+        }}
+      >
         <main>{children}</main>
         <FixedPosition
           disappearOnViewportWidth={

@@ -45,7 +45,7 @@ export default function Blog() {
   const {shopify, firstI} = useWorkData();
 
   return (
-    <Layout>
+    <Layout paddingOverride="10px 30px 30px 30px">
       <SEO title={t('work')} />
       <Wrapper>
         <TextWrapper>
