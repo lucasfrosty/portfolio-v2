@@ -8,5 +8,19 @@
   "workDescription": "Those are the main technologies i'm using right now, but i'm always open to learn and explore new ones. For more information check out <1>Work</1>.",
   "aboutMePageTitle": "About me",
   "whyMedium": "I'm too lazy to implement a blog myself, so i'll be doing my posts on <1>Medium</1>.",
-  "reasonToWriteInPortuguese": "I write in portuguese is because i think we already have way too much content in english out there, so i'm trying to be more inclusive and focused on my fellow brazilians."
+  "reasonToWriteInPortuguese": "I write in portuguese is because i think we already have way too much content in english out there, so i'm trying to be more inclusive and focused on my fellow brazilians.",
+  "canadaFlag": "Canada flag",
+  "brazilFlag": "Brazil flag",
+  "remote": "Remote",
+  "present": "Present",
+  "DateRange": {
+    "onlyMonths": "{{count}} month",
+    "onlyMonths_plural": "{{count}} months",
+    "onlyYears": "{{count}} year",
+    "onlyYears_plural": "{{count}} years",
+    "yearPluralMonthSingular": "{{yearCount}} years and {{monthCount}} month",
+    "yearPluralMonthPlural": "{{yearCount}} years and {{monthCount}} months",
+    "yearSingularMonthPlural": "{{yearCount}} year and {{monthCount}} months",
+    "yearSingularMonthSingular": "{{yearCount}} year and {{monthCount}} month"
+  }
 }

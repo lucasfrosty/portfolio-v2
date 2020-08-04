@@ -4,7 +4,8 @@ import {useTranslation} from 'react-i18next';
 import {graphql, useStaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
 
-import {Layout, Text, Title, SEO} from '../components';
+import {Layout, Title, SEO, JobDetails} from '../components';
+import {useWorkData} from '../utilities/work-data';
 
 export const query = graphql`
   query {
@@ -33,20 +34,24 @@ const Wrapper = styled.div`
 `;
 
 const TextWrapper = styled.div`
-  max-width: 600px;
+  max-width: 380px;
+  width: 100%;
 `;
 
 export default function Blog() {
   const {t} = useTranslation();
   const {MenWorking} = useStaticQuery(query);
+  const {shopify, firstI} = useWorkData();
 
   return (
     <Layout>
       <SEO title={t('work')} />
       <Wrapper>
         <TextWrapper>
-          <Title>Work</Title>
-          <Text>Work list</Text>
+          <Title>{t('work')}</Title>
+          {[shopify, firstI].map((company) => (
+            <JobDetails company={company} key={company.name} />
+          ))}
         </TextWrapper>
         <ImageWrapper>
           <Img fixed={MenWorking.childImageSharp.fixed} />

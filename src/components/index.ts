@@ -7,3 +7,4 @@ export {Text} from './text';
 export {Post} from './post';
 export {SpacedWrapper} from './spaced-wrapper';
 export {Title} from './title';
+export {JobDetails} from './job-details';

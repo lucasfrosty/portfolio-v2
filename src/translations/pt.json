@@ -8,5 +8,19 @@
   "workDescription": "Essas são as principais tecnologias que eu estou usando agora, mas sempre estou aberto a aprender e explorar coisas novas. Para mais informações veja <1>Trabalho</1>.",
   "aboutMePageTitle": "Sobre mim",
   "whyMedium": "Eu sou muito preguiçoso para implementar um blog, então por causa disso meus posts serão no <1>Medium</1>.",
-  "reasonToWriteInPortuguese": "Eu escrevo em português porque eu acho que já existe bastante conteúdo em inglês por aí, então escrevendo em português eu tento ser mais inclusivo e também crio um conteúdo mais focado nos meus colegas brasileiros."
+  "reasonToWriteInPortuguese": "Eu escrevo em português porque eu acho que já existe bastante conteúdo em inglês por aí, então escrevendo em português eu tento ser mais inclusivo e também crio um conteúdo mais focado nos meus colegas brasileiros.",
+  "canadaFlag": "Bandeira do Canadá",
+  "brazilFlag": "Bandeira do Brasil",
+  "remote": "Remoto",
+  "present": "Presente",
+  "DateRange": {
+    "onlyMonths": "{{count}} mês",
+    "onlyMonths_plural": "{{count}} meses",
+    "onlyYears": "{{count}} ano",
+    "onlyYears_plural": "{{count}} anos",
+    "yearPluralMonthSingular": "{{yearCount}} anos e {{monthCount}} mês",
+    "yearPluralMonthPlural": "{{yearCount}} anos e {{monthCount}} meses",
+    "yearSingularMonthPlural": "{{yearCount}} ano e {{monthCount}} meses",
+    "yearSingularMonthSingular": "{{yearCount}} ano e {{monthCount}} mês"
+  }
 }
