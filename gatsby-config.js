@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `lucasfrosty`,
-    description: `Lucas Ferreira is a Web Developer and this is his portfolio.`,
+    description: `Lucas Ferreira | Front end developer`,
     author: `@lucasfrosty`,
   },
   plugins: [
@@ -32,4 +32,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
