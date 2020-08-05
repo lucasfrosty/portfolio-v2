@@ -7,16 +7,16 @@
   "dependencies": {
     "@shopify/eslint-plugin": "^37.0.1",
     "babel-plugin-styled-components": "^1.11.1",
-    "gatsby": "^2.23.12",
-    "gatsby-image": "^2.4.9",
-    "gatsby-plugin-manifest": "^2.4.14",
+    "gatsby": "^2.24.27",
+    "gatsby-image": "^2.4.14",
+    "gatsby-plugin-manifest": "^2.4.21",
     "gatsby-plugin-netlify": "^2.3.11",
-    "gatsby-plugin-offline": "^3.2.13",
-    "gatsby-plugin-react-helmet": "^3.3.6",
-    "gatsby-plugin-sharp": "^2.6.14",
+    "gatsby-plugin-offline": "^3.2.21",
+    "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-sharp": "^2.6.24",
     "gatsby-plugin-styled-components": "^3.3.10",
-    "gatsby-source-filesystem": "^2.3.14",
-    "gatsby-transformer-sharp": "^2.5.7",
+    "gatsby-source-filesystem": "^2.3.23",
+    "gatsby-transformer-sharp": "^2.5.12",
     "i18next": "^19.6.3",
     "i18next-browser-languagedetector": "^5.0.0",
     "i18next-http-backend": "^1.0.17",
@@ -29,10 +29,10 @@
     "typescript": "^3.9.7"
   },
   "devDependencies": {
-    "prettier": "2.0.5",
+    "@types/react-helmet": "^6.1.0",
+    "@types/styled-components": "^5.1.2",
     "eslint-config-prettier": "^6.11.0",
-    "@types/react-helmet": "^6.0.0",
-    "@types/styled-components": "^5.1.1"
+    "prettier": "2.0.5"
   },
   "keywords": [
     "gatsby"
