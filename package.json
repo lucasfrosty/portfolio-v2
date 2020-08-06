@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Lucas Ferreira <lucas_frosty@hotmail.com>",
   "dependencies": {
+    "@reach/router": "^1.3.4",
     "@shopify/eslint-plugin": "^37.0.1",
     "babel-plugin-styled-components": "^1.11.1",
     "gatsby": "^2.24.27",

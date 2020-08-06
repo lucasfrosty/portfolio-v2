@@ -2,10 +2,10 @@ import {Link} from 'gatsby';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components';
+import {useLocation} from '@reach/router';
 
 import {Route} from '../utilities/routes';
 import {globalWrapperMargin, colors} from '../utilities/styles';
-import {isSSR} from '../utilities/constants';
 
 import {LanguageSwitcherButton} from './language-switcher-button';
 
@@ -72,6 +72,7 @@ const StyledLink = styled(({isActive, ...props}) => <Link {...props} />)`
 
 export function Header() {
   const {t} = useTranslation();
+  const routeLocation = useLocation();
   const links: LinkProperties[] = [
     {
       content: t('aboutMe'),
@@ -104,10 +105,6 @@ export function Header() {
   );
 
   function isActiveRoute(route: Route) {
-    if (isSSR) {
-      return false;
-    }
-
-    return location.pathname === route;
+    return routeLocation.pathname === route;
   }
 }
