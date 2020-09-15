@@ -70,6 +70,7 @@ interface SkillLogo {
   height?: number;
   marginLeft?: number;
   alt: string;
+  url: string;
 }
 
 const SecondHeader = styled.h2`
@@ -144,22 +145,30 @@ export default function AboutMe() {
       fixed: ReactLogo.childImageSharp.fixed,
       marginLeft: 0,
       alt: 'React.js logo',
+      url: 'https://reactjs.org/',
     },
     {
       fixed: ReduxLogo.childImageSharp.fixed,
       marginLeft: 13,
       alt: 'Redux logo',
+      url: 'https://redux.js.org/',
     },
-    {fixed: GraphQLLogo.childImageSharp.fixed, alt: 'GraphQL logo'},
+    {
+      fixed: GraphQLLogo.childImageSharp.fixed,
+      alt: 'GraphQL logo',
+      url: 'https://graphql.org/',
+    },
     {
       fixed: ApolloLogo.childImageSharp.fixed,
       marginLeft: 11,
       alt: 'Apollo logo',
+      url: 'https://www.apollographql.com/',
     },
     {
       fixed: RailsLogo.childImageSharp.fixed,
       marginLeft: 8,
       alt: 'Ruby on Rails logo',
+      url: 'https://rubyonrails.org/',
     },
   ];
 
@@ -205,8 +214,10 @@ export default function AboutMe() {
             <SecondHeader>{t('skills')}</SecondHeader>
             <div>
               <div>
-                {skillListLogos.map(({fixed, marginLeft = 15, alt}) => (
-                  <Img alt={alt} key={alt} fixed={fixed} style={{marginLeft}} />
+                {skillListLogos.map(({url, fixed, marginLeft = 15, alt}) => (
+                  <a href={url} target="_blank" rel="noreferrer" key={alt}>
+                    <Img alt={alt} fixed={fixed} style={{marginLeft}} />
+                  </a>
                 ))}
               </div>
               <SpacedWrapper margin="25px 0 0 0">
