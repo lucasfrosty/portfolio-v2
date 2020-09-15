@@ -106,13 +106,11 @@ export function JobDetails({company}: Props) {
           year: 'numeric',
         });
 
-    const formattedStartDate = capitalize(
-      startDate.toLocaleString(i18n.language, {
-        day: undefined,
-        month: 'long',
-        year: 'numeric',
-      }),
-    );
+    const formattedStartDate = startDate.toLocaleString(i18n.language, {
+      day: undefined,
+      month: 'long',
+      year: 'numeric',
+    });
 
     const [capitalizedStartDate, capitalizeEndDate] = [
       formattedStartDate,
