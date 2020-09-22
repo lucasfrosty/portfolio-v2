@@ -71,7 +71,10 @@ export function JobDetails({company}: Props) {
         </PositionsWrapper>
         <div style={{fontSize: 15, marginTop: 20}}>
           {company.descriptions.map((description, index) => (
-            <p key={description}>{description}</p>
+            // the company description data is static so we won't remove/add/sort the array at all
+            // so because of that, using index in this case is fine
+            // eslint-disable-next-line react/no-array-index-key
+            <p key={`company-description-${index}`}>{description}</p>
           ))}
         </div>
       </CompanyInfoWrapper>

@@ -1,10 +1,12 @@
 import {useTranslation} from 'react-i18next';
 
+const MONTHS_IN_A_YEAR = 12;
+
 export function monthDifferenceBetweenDates(startDate: Date, endDate: Date) {
   return (
     endDate.getMonth() -
     startDate.getMonth() +
-    12 * (endDate.getFullYear() - startDate.getFullYear())
+    MONTHS_IN_A_YEAR * (endDate.getFullYear() - startDate.getFullYear())
   );
 }
 
@@ -12,15 +14,14 @@ export function useDateTransformer() {
   const {t} = useTranslation();
 
   return (amountOfMonths: number) => {
-    const monthsInYear = 12;
-    if (amountOfMonths < 12) {
+    if (amountOfMonths < MONTHS_IN_A_YEAR) {
       return t('DateRange.onlyMonths', {
         count: amountOfMonths,
       });
     }
 
-    const years = Math.floor(amountOfMonths / 12);
-    const monthsRemaining = amountOfMonths - years * monthsInYear;
+    const years = Math.floor(amountOfMonths / MONTHS_IN_A_YEAR);
+    const monthsRemaining = amountOfMonths - years * MONTHS_IN_A_YEAR;
 
     if (monthsRemaining === 0) {
       return t('DateRange.onlyYears', {

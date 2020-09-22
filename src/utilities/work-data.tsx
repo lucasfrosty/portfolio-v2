@@ -1,6 +1,6 @@
 import React from 'react';
 import {FixedObject} from 'gatsby-image';
-import {useTranslation, Trans} from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import {useStaticQuery, graphql, Link} from 'gatsby';
 
 export interface JobPosition {
