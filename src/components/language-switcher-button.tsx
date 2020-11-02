@@ -1,7 +1,7 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {graphql, useStaticQuery} from 'gatsby';
-import styled from 'styled-components';
+import styled, {StyledComponent} from 'styled-components';
 import Img from 'gatsby-image';
 
 export const query = graphql`
@@ -24,7 +24,9 @@ export const query = graphql`
   }
 `;
 
-const ResetedButton = styled.button`
+const ResetedButton = styled.button.attrs((props) => ({
+  'aria-label': props['aria-label'],
+}))`
   border: none;
   margin: 0;
   padding: 0;
@@ -64,15 +66,17 @@ export function LanguageSwitcherButton() {
     ? {
         onClick: () => i18n.changeLanguage('pt'),
         children: <Img fixed={USFlag.childImageSharp.fixed} />,
+        'aria-label': 'Mudar para inglês',
       }
     : {
         onClick: () => i18n.changeLanguage('en'),
         children: <Img fixed={BRFlag.childImageSharp.fixed} />,
+        'aria-label': 'Switch to portuguese',
       };
 
   return (
     <Wrapper>
-      <ResetedButton role="button" {...buttonOptions} />
+      <ResetedButton {...buttonOptions} role="button" />
     </Wrapper>
   );
 }
