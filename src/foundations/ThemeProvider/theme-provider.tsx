@@ -8,7 +8,7 @@ interface Props {
 }
 
 export function ThemeProvider({children}: Props) {
-  const [currentTheme, setCurrentTheme] = useState<ThemeMode>('darkMode');
+  const [currentTheme, setCurrentTheme] = useState<ThemeMode>('whiteMode');
 
   return (
     <StyledComponentsThemeProvider theme={themes[currentTheme]}>
