@@ -1,7 +1,7 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {graphql, useStaticQuery} from 'gatsby';
-import styled, {StyledComponent} from 'styled-components';
+import styled from 'styled-components';
 import Img from 'gatsby-image';
 
 export const query = graphql`

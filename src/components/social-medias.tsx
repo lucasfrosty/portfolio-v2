@@ -10,6 +10,8 @@ const SocialWrapper = styled.div`
   right: 30px;
   padding: 5px 10px;
   display: flex;
+  background-color: #fff;
+  border-radius: 5px;
 
   @media only screen and (max-width: 1000px) {
     background-color: #fff;

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import {useLocation} from '@reach/router';
 
 import {Route} from '../utilities/routes';
-import {globalWrapperMargin, colors} from '../utilities/styles';
+import {globalWrapperMargin} from '../utilities/styles';
 
 import {LanguageSwitcherButton} from './language-switcher-button';
 
@@ -26,7 +26,7 @@ export const Navbar = styled.nav`
 
 const halfBorderBottom = `
   &::after {
-    background-color: ${colors.primary};
+    background-color: ${(props: any) => props.theme.primary};
     bottom: 0;
     content: '';
     display: block;
@@ -39,7 +39,7 @@ const halfBorderBottom = `
 `;
 
 const StyledLink = styled(({isActive, ...props}) => <Link {...props} />)`
-  color: #383838;
+  color: ${(props) => props.theme.link};
   text-decoration: none;
   font-weight: 600;
   padding-bottom: 5px;
@@ -50,12 +50,12 @@ const StyledLink = styled(({isActive, ...props}) => <Link {...props} />)`
   }
 
   &:hover {
-    color: ${colors.primary};
+    color: ${(props) => props.theme.primary};
   }
 
   &:active,
   &:focus {
-    color: #383838;
+    color: ${(props) => props.theme.link};
     text-decoration: none;
   }
 

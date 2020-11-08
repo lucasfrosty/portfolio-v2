@@ -3,7 +3,7 @@ import {Helmet} from 'react-helmet';
 import {useTranslation} from 'react-i18next';
 import {createGlobalStyle} from 'styled-components';
 
-import {colors, darken} from '../utilities/styles';
+import {darken} from '../utilities/styles';
 
 export const GlobalStyleComponent = createGlobalStyle`
   body {
@@ -11,14 +11,15 @@ export const GlobalStyleComponent = createGlobalStyle`
     padding: 0;
     font-family: 'Baloo 2', Helvetica, Sans-Serif;
     height: 100vh;
+    background-color: ${(props) => props.theme.background};
   }
 
   a {
-    color: ${colors.primary};
+    color: ${(props) => props.theme.primary};
     text-decoration: none;
 
     &:hover {
-      color: ${darken(colors.primary, 60)};
+      color: ${(props) => darken(props.theme.primary, 60)};
       text-decoration: underline;
     }
   }

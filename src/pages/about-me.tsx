@@ -4,7 +4,7 @@ import Img, {FixedObject} from 'gatsby-image';
 import {Link, graphql, useStaticQuery} from 'gatsby';
 import styled from 'styled-components';
 
-import {colors, breakPointsInPx} from '../utilities/styles';
+import {breakPointsInPx} from '../utilities/styles';
 import {Route} from '../utilities/routes';
 import {SEO, Text, Layout, SpacedWrapper} from '../components';
 
@@ -44,7 +44,7 @@ const ImageWrapper = styled.div`
 const RoundedImage = styled((props) => <Img {...props} />)`
   border-radius: 100%;
   border: 3px solid white;
-  box-shadow: 14px 19px 0px 5px ${colors.primary};
+  box-shadow: 14px 19px 0px 5px ${(props) => props.theme.primary};
   width: 400px;
   max-width: 400px;
   max-height: 400px;
@@ -61,7 +61,7 @@ const RoundedImage = styled((props) => <Img {...props} />)`
 const NameHeader = styled.h1`
   font-weight: 600;
   margin-bottom: 0;
-  color: ${colors.primary};
+  color: ${(props) => props.theme.primary};
 `;
 
 interface SkillLogo {
@@ -74,7 +74,7 @@ interface SkillLogo {
 }
 
 const SecondHeader = styled.h2`
-  color: ${colors.primary};
+  color: ${(props) => props.theme.primary};
 `;
 
 export const query = graphql`

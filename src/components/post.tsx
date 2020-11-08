@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import {MediumPost} from '../utilities/posts';
 import {i18n} from '../utilities/i18n';
-import {colors} from '../utilities/styles';
 
 export const query = graphql`
   query {
@@ -21,7 +20,7 @@ export const query = graphql`
 
 const ComponentWrapper = styled.div`
   margin-bottom: 20px;
-  border-left: 1px dashed ${colors.text};
+  border-left: 1px dashed ${(props) => props.theme.text};
   padding-left: 10px;
   font-size: 17px;
 `;
