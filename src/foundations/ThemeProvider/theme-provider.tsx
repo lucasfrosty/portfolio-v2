@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {ThemeProvider as StyledComponentsThemeProvider} from 'styled-components';
 
-import {ThemeContext, ThemeMode, themes} from '../../utilities/theme';
+import {ThemeContext, themes, useLocalTheme} from '../../utilities/theme';
 
 interface Props {
   children: React.ReactNode;
 }
 
 export function ThemeProvider({children}: Props) {
-  const [currentTheme, setCurrentTheme] = useState<ThemeMode>('whiteMode');
+  const [currentTheme, setCurrentTheme] = useLocalTheme();
 
   return (
     <StyledComponentsThemeProvider theme={themes[currentTheme]}>
@@ -19,12 +19,10 @@ export function ThemeProvider({children}: Props) {
   );
 
   function toggleTheme() {
-    setCurrentTheme((prevTheme) => {
-      if (prevTheme === 'darkMode') {
-        return 'whiteMode';
-      }
-
-      return 'darkMode';
-    });
+    if (currentTheme === 'darkMode') {
+      setCurrentTheme('whiteMode');
+    } else {
+      setCurrentTheme('darkMode');
+    }
   }
 }

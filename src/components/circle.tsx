@@ -1,13 +1,13 @@
 import React from 'react';
 
-import {useThemeProperties} from '../utilities/theme';
+import {useCurrentThemeProperties} from '../utilities/theme';
 
 interface Props {
   size: number;
 }
 
 export function Circle({size}: Props) {
-  const {primary} = useThemeProperties();
+  const {primary} = useCurrentThemeProperties();
   const sizeString = String(size);
 
   return (

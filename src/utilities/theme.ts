@@ -1,7 +1,7 @@
-import baseStyled, {ThemedStyledInterface} from 'styled-components';
 import {createContext, useContext} from 'react';
 
 import {noop} from './other';
+import {useLocalStorage} from './local-storage';
 
 export interface ThemeProperties {
   primary: string;
@@ -10,6 +10,7 @@ export interface ThemeProperties {
   link: string;
 }
 
+export type ThemeMode = 'darkMode' | 'whiteMode';
 export const themes: Record<ThemeMode, ThemeProperties> = {
   whiteMode: {
     background: '#fff',
@@ -18,19 +19,18 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
     link: '#383838',
   },
   darkMode: {
-    background: '#000',
-    primary: '#6c66e3',
+    background: '#18181b',
+    primary: 'cyan',
     text: '#fff',
     link: 'red',
   },
 };
 
-// custom version of styled, which will have the `props.theme` object strongly typed
-export const styled = baseStyled as ThemedStyledInterface<ThemeProperties>;
+const LOCAL_STORAGE_KEY = 'lucas_frosty_blog_theme';
+export function useLocalTheme() {
+  return useLocalStorage<ThemeMode>(LOCAL_STORAGE_KEY, 'whiteMode');
+}
 
-// here i'm also creating a custom theme provider so i can use the current color schema
-// also on the javascript side, for the cases i'm not using styled components, like svgs and circles
-export type ThemeMode = 'darkMode' | 'whiteMode';
 interface ContextType {
   currentTheme: ThemeMode;
   toggleTheme(): void;
@@ -45,7 +45,7 @@ export function useTheme() {
   return useContext(ThemeContext);
 }
 
-export function useThemeProperties() {
+export function useCurrentThemeProperties() {
   const {currentTheme} = useTheme();
 
   return themes[currentTheme];
