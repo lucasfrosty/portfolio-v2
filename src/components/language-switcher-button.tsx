@@ -1,28 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {graphql, useStaticQuery} from 'gatsby';
+// import {graphql} from 'gatsby';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
 
-export const query = graphql`
-  query {
-    USFlag: file(relativePath: {eq: "us.png"}) {
-      childImageSharp {
-        fixed(width: 32, height: 32) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
+import {SettingsDark} from '../icons';
+import {breakPointsInPx} from '../utilities/styles';
 
-    BRFlag: file(relativePath: {eq: "brazil.png"}) {
-      childImageSharp {
-        fixed(width: 32, height: 32) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`;
+import {Popover} from './popover';
+
+// export const query = graphql`
+//   query {
+//     USFlag: file(relativePath: {eq: "us.png"}) {
+//       childImageSharp {
+//         fixed(width: 32, height: 32) {
+//           ...GatsbyImageSharpFixed
+//         }
+//       }
+//     }
+
+//     BRFlag: file(relativePath: {eq: "brazil.png"}) {
+//       childImageSharp {
+//         fixed(width: 32, height: 32) {
+//           ...GatsbyImageSharpFixed
+//         }
+//       }
+//     }
+//   }
+// `;
 
 const ResetedButton = styled.button.attrs((props) => ({
   'aria-label': props['aria-label'],
@@ -52,31 +56,66 @@ const ResetedButton = styled.button.attrs((props) => ({
 const Wrapper = styled.span`
   display: flex;
 
-  @media only screen and (min-width: 1450px) and (max-width: 1670px) {
+  @media only screen and (min-width: 1550px) {
     padding-right: 10%;
   }
 `;
 
+const SettingsIconWrapper = styled.div`
+  path {
+    fill: #fff;
+  }
+
+  @media only screen and (max-width: ${breakPointsInPx.aboutMe}px) {
+    path {
+      fill: ${(props) => props.theme.text};
+    }
+  }
+
+  @media only screen and (min-width: 1550px) {
+    path {
+      fill: ${(props) => props.theme.text};
+    }
+  }
+`;
+
 export function LanguageSwitcherButton() {
-  const {BRFlag, USFlag} = useStaticQuery(query);
+  const [isActive, setIsActive] = useState(false);
+
   const {i18n} = useTranslation();
   const isEnglish = i18n.language === 'en';
+
+  const settingsIcon = (
+    <SettingsIconWrapper>
+      <SettingsDark />
+    </SettingsIconWrapper>
+  );
 
   const buttonOptions = isEnglish
     ? {
         onClick: () => i18n.changeLanguage('pt'),
-        children: <Img fixed={USFlag.childImageSharp.fixed} />,
+        children: settingsIcon,
         'aria-label': 'Mudar para inglês',
       }
     : {
         onClick: () => i18n.changeLanguage('en'),
-        children: <Img fixed={BRFlag.childImageSharp.fixed} />,
+        children: settingsIcon,
         'aria-label': 'Switch to portuguese',
       };
 
+  const activator = (
+    <ResetedButton
+      {...buttonOptions}
+      role="button"
+      onClick={() => setIsActive((prev) => !prev)}
+    />
+  );
+
   return (
     <Wrapper>
-      <ResetedButton {...buttonOptions} role="button" />
+      <Popover active={isActive} activator={activator}>
+        <div>Popper</div>
+      </Popover>
     </Wrapper>
   );
 }

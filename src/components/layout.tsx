@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {AppProvider} from '../foundations';
 import '../utilities/i18n';
 import {globalWrapperMargin, breakPointsInPx} from '../utilities/styles';
 
@@ -54,7 +55,7 @@ const ContentWrapper = styled.div`
 
 export function Layout({children, paddingOverride}: Props) {
   return (
-    <>
+    <AppProvider>
       <GlobalStyle />
       <Header />
       <ContentWrapper
@@ -87,7 +88,7 @@ export function Layout({children, paddingOverride}: Props) {
         </FixedPosition>
         <SocialMedias />
       </ContentWrapper>
-    </>
+    </AppProvider>
   );
 }
 

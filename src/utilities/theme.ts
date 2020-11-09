@@ -19,10 +19,10 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
     link: '#383838',
   },
   darkMode: {
-    background: '#18181b',
-    primary: 'cyan',
-    text: '#fff',
-    link: 'red',
+    background: '#1e1d21',
+    primary: 'rgba(255, 255, 255, 0.6)',
+    text: 'rgba(255, 255, 255, 0.9)',
+    link: 'rgba(255, 255, 255, 0.8)',
   },
 };
 
