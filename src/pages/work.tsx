@@ -1,27 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
-import {graphql, useStaticQuery} from 'gatsby';
-import Img from 'gatsby-image';
 
 import {Layout, Title, SEO, JobDetails} from '../components';
 import {useWorkData} from '../utilities/work-data';
-
-export const query = graphql`
-  query {
-    MenWorking: file(relativePath: {eq: "men-working.png"}) {
-      childImageSharp {
-        fixed(width: 550) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`;
+import {Work} from '../icons';
 
 const ImageWrapper = styled.div`
   z-index: 1;
   margin: auto;
+
+  @media only screen and (max-width: 1200px) {
+    > svg {
+      width: 350px;
+      height: 350px;
+    }
+  }
 
   @media only screen and (max-width: 1000px) {
     display: none;
@@ -41,7 +35,6 @@ const TextWrapper = styled.div`
 
 export default function Blog() {
   const {t} = useTranslation();
-  const {MenWorking} = useStaticQuery(query);
   const {shopify, firstI} = useWorkData();
 
   return (
@@ -55,7 +48,7 @@ export default function Blog() {
           ))}
         </TextWrapper>
         <ImageWrapper>
-          <Img fixed={MenWorking.childImageSharp.fixed} />
+          <Work width="400" height="400" />
         </ImageWrapper>
       </Wrapper>
     </Layout>

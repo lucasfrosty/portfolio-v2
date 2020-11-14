@@ -27,10 +27,11 @@ const CompanyInfoWrapper = styled.div`
   margin-left: 10px;
 `;
 
-const CompanyNameWrapper = styled.p`
+const CompanyNameWrapper = styled.h3`
   font-weight: 600;
   margin: 0;
   font-size: 18px;
+  color: ${(props) => props.theme.highlight};
 `;
 
 const PositionsWrapper = styled.div`
@@ -45,19 +46,25 @@ const PositionsWrapper = styled.div`
 export function JobDetails({company}: Props) {
   const {t, i18n} = useTranslation();
   const dateTransformer = useDateTransformer();
+
+  const imageMarkup = (
+    <div>
+      <Img fixed={company.logo} />
+    </div>
+  );
+
   return (
     <JobDetailsWrapper>
-      <div>
-        <Img fixed={company.logo} />
-      </div>
+      {imageMarkup}
       <CompanyInfoWrapper>
         <CompanyNameWrapper>{company.name}</CompanyNameWrapper>
         <Text caption>{calculateTimeAtCompany(company.jobPositions)}</Text>
-
         <PositionsWrapper>
           {company.jobPositions.map((position) => (
             <div key={position.startDate.toString()}>
-              <Text style={{color: '#000', fontSize: 16}}>{position.name}</Text>
+              <Text highlight style={{fontSize: 16}}>
+                {position.name}
+              </Text>
               <Text caption>
                 {getJobTimeframe({
                   startDate: position.startDate,
@@ -74,7 +81,9 @@ export function JobDetails({company}: Props) {
             // the company description data is static so we won't remove/add/sort the array at all
             // so because of that, using index in this case is fine
             // eslint-disable-next-line react/no-array-index-key
-            <p key={`company-description-${index}`}>{description}</p>
+            <p key={`company-description-${index}`}>
+              <Text caption>{description}</Text>
+            </p>
           ))}
         </div>
       </CompanyInfoWrapper>

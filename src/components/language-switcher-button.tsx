@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next';
 // import {graphql} from 'gatsby';
 import styled from 'styled-components';
 
-import {SettingsDark} from '../icons';
+import {Settings} from '../icons';
 import {breakPointsInPx} from '../utilities/styles';
 import {useTheme} from '../utilities/theme';
 
@@ -109,7 +109,7 @@ export function LanguageSwitcherButton() {
 
   const settingsIcon = (
     <SettingsIconWrapper>
-      <SettingsDark />
+      <Settings />
     </SettingsIconWrapper>
   );
 

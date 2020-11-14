@@ -1,27 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useTranslation, Trans} from 'react-i18next';
-import {Link, graphql, useStaticQuery} from 'gatsby';
-import Img from 'gatsby-image';
 
 import {Layout, Text, Post, SpacedWrapper, Title, SEO} from '../components';
 import {posts} from '../utilities/posts';
-
-export const query = graphql`
-  query {
-    MenWriting: file(relativePath: {eq: "men-writing.png"}) {
-      childImageSharp {
-        fixed(width: 350) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`;
+import {Plan} from '../icons';
 
 const ImageWrapper = styled.div`
   z-index: 1;
   margin: auto;
+
+  @media only screen and (max-width: 1200px) {
+    margin-bottom: 30px;
+
+    > svg {
+      width: 350px;
+      height: 350px;
+    }
+  }
 
   @media only screen and (max-width: 1000px) {
     display: none;
@@ -39,7 +35,6 @@ const TextWrapper = styled.div`
 
 export default function Blog() {
   const {t, i18n} = useTranslation();
-  const {MenWriting} = useStaticQuery(query);
 
   const textAboutTranslation = i18n.language === 'en' && (
     <span>
@@ -59,9 +54,13 @@ export default function Blog() {
             <Trans i18nKey="whyMedium">
               I&apos;m too lazy to implement a blog myself so i&apos;ll be doing
               my posts on
-              <Link to="https://medium.com/@lucasfrosty" target="_blank">
+              <a
+                href="https://medium.com/@lucasfrosty"
+                rel="noreferrer"
+                target="_blank"
+              >
                 Medium
-              </Link>
+              </a>
               .
             </Trans>
           </Text>
@@ -77,7 +76,7 @@ export default function Blog() {
           </SpacedWrapper>
         </TextWrapper>
         <ImageWrapper>
-          <Img fixed={MenWriting.childImageSharp.fixed} />
+          <Plan width="400" height="400" />
         </ImageWrapper>
       </Wrapper>
     </Layout>

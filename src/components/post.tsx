@@ -5,6 +5,9 @@ import styled from 'styled-components';
 
 import {MediumPost} from '../utilities/posts';
 import {i18n} from '../utilities/i18n';
+import {useCurrentThemeProperties} from '../utilities/theme';
+
+import {Text} from './text';
 
 export const query = graphql`
   query {
@@ -39,24 +42,25 @@ interface Props extends MediumPost {}
 
 export function Post({date, title, url}: Props) {
   const {Calendar} = useStaticQuery(query);
+  const {link} = useCurrentThemeProperties();
 
   return (
     <ComponentWrapper>
-      <Link target="_blank" to={url}>
+      <a style={{color: link}} target="_blank" rel="noreferrer" href={url}>
         {title}
-      </Link>
+      </a>
       <DateWrapper>
         <Img
           imgStyle={{ariaHidden: true}}
           fixed={Calendar.childImageSharp.fixed}
         />
-        <p>
+        <Text>
           {date.toLocaleDateString(i18n.language, {
             day: 'numeric',
             month: 'long',
             year: 'numeric',
           })}
-        </p>
+        </Text>
       </DateWrapper>
     </ComponentWrapper>
   );

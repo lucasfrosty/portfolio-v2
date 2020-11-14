@@ -10,6 +10,7 @@ export interface ThemeProperties {
   link: string;
   shadow: string;
   border: string;
+  highlight: string;
 }
 
 export type ThemeMode = 'darkMode' | 'whiteMode';
@@ -21,14 +22,16 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
     link: '#383838',
     shadow: '7px 7px 23px -3px rgba(149, 157, 165, 0.25)',
     border: '#dfe3e8',
+    highlight: '#000',
   },
   darkMode: {
-    background: '#1e1d21',
-    primary: 'rgba(255, 255, 255, 0.6)',
+    background: '#282c35',
+    primary: '#469df0',
     text: 'rgba(255, 255, 255, 0.9)',
     link: 'rgba(255, 255, 255, 0.8)',
     shadow: '7px 7px 23px -3px rgba(59, 63, 69, 0.15)',
     border: '#2e2e2e',
+    highlight: '#fff',
   },
 };
 
