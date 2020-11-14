@@ -92,13 +92,12 @@ const ActionList = styled.div`
   margin-top: 8px;
   min-width: 210px;
   border-radius: 5px;
-  background-color: #fff;
-
-  border: 1px solid #dfe3e8;
-
-  -webkit-box-shadow: 7px 7px 23px -3px rgba(149, 157, 165, 0.25);
-  -moz-box-shadow: 7px 7px 23px -3px rgba(149, 157, 165, 0.25);
-  box-shadow: 7px 7px 23px -3px rgba(149, 157, 165, 0.25);
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.background};
+  border: 1px solid ${(props) => props.theme.border};
+  -webkit-box-shadow: ${(props) => props.theme.shadow};
+  -moz-box-shadow: ${(props) => props.theme.shadow};
+  box-shadow: ${(props) => props.theme.shadow};
 `;
 
 export function LanguageSwitcherButton() {
@@ -142,6 +141,7 @@ export function LanguageSwitcherButton() {
         options={{
           placement: 'bottom-end',
         }}
+        onClose={() => setIsActive(false)}
       >
         <ActionList>
           <div>

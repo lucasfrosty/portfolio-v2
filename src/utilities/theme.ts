@@ -8,6 +8,8 @@ export interface ThemeProperties {
   text: string;
   background: string;
   link: string;
+  shadow: string;
+  border: string;
 }
 
 export type ThemeMode = 'darkMode' | 'whiteMode';
@@ -17,12 +19,16 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
     primary: '#6c66e3',
     text: '#464646',
     link: '#383838',
+    shadow: '7px 7px 23px -3px rgba(149, 157, 165, 0.25)',
+    border: '#dfe3e8',
   },
   darkMode: {
     background: '#1e1d21',
     primary: 'rgba(255, 255, 255, 0.6)',
     text: 'rgba(255, 255, 255, 0.9)',
     link: 'rgba(255, 255, 255, 0.8)',
+    shadow: '7px 7px 23px -3px rgba(59, 63, 69, 0.15)',
+    border: '#2e2e2e',
   },
 };
 
