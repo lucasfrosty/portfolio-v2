@@ -1,16 +1,22 @@
 import React, {useState, cloneElement} from 'react';
 import {usePopper} from 'react-popper';
+import {Options as PopperOptions} from '@popperjs/core';
 
 interface Props {
   activator: React.ReactElement;
   children: React.ReactElement;
   active: boolean;
+  options?: Parameters<typeof usePopper>['2'];
 }
 
-export function Popover({activator, active, children}: Props) {
+export function Popover({activator, active, children, options}: Props) {
   const [referenceElement, setReferenceElement] = useState(null);
   const [popperElement, setPopperElement] = useState(null);
-  const {styles, attributes} = usePopper(referenceElement, popperElement);
+  const {styles, attributes} = usePopper(
+    referenceElement,
+    popperElement,
+    options,
+  );
 
   const clonedActivator = cloneElement(activator, {
     ref: setReferenceElement,

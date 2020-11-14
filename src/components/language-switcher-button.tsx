@@ -45,6 +45,10 @@ const ResetedButton = styled.button.attrs((props) => ({
 
   line-height: normal;
 
+  &:active {
+    outline: none;
+  }
+
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
 
@@ -62,6 +66,8 @@ const Wrapper = styled.span`
 `;
 
 const SettingsIconWrapper = styled.div`
+  display: flex;
+  align-items: center;
   path {
     fill: #fff;
   }
@@ -77,6 +83,21 @@ const SettingsIconWrapper = styled.div`
       fill: ${(props) => props.theme.text};
     }
   }
+`;
+
+const ActionList = styled.div`
+  z-index: 99;
+  padding: 10px;
+  margin-top: 8px;
+  min-width: 100px;
+  border-radius: 5px;
+  background-color: #fff;
+
+  border: 1px solid #dfe3e8;
+
+  -webkit-box-shadow: 7px 7px 23px -3px rgba(149, 157, 165, 0.25);
+  -moz-box-shadow: 7px 7px 23px -3px rgba(149, 157, 165, 0.25);
+  box-shadow: 7px 7px 23px -3px rgba(149, 157, 165, 0.25);
 `;
 
 export function LanguageSwitcherButton() {
@@ -113,8 +134,22 @@ export function LanguageSwitcherButton() {
 
   return (
     <Wrapper>
-      <Popover active={isActive} activator={activator}>
-        <div>Popper</div>
+      <Popover
+        active={isActive}
+        activator={activator}
+        options={{
+          placement: 'bottom-end',
+        }}
+      >
+        <ActionList>
+          <div>options</div>
+          <div>options</div>
+          <div>options</div>
+          <div>options</div>
+          <div>options</div>
+          <div>options</div>
+          <div>options</div>
+        </ActionList>
       </Popover>
     </Wrapper>
   );
