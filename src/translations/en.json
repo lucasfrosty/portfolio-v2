@@ -1,4 +1,8 @@
 {
+  "darkMode": "Switch to Dark mode (beta)",
+  "whiteMode": "Switch to White mode",
+  "portuguese": "Switch to Portuguese",
+  "english": "Switch to English",
   "description": "Hello! My name is Lucas Ferreira. I'm a Front end developer.",
   "description2": "I'm from Brazil but currently i'm based in Ottawa, Canada working at <1>Shopify.</1>",
   "description3": "I'm passionate about programming and also a UX enthusiast, always trying to learn and advocate for the best practices on both worlds.",
