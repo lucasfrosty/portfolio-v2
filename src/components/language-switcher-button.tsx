@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import {SettingsDark} from '../icons';
 import {breakPointsInPx} from '../utilities/styles';
+import {useTheme} from '../utilities/theme';
 
 import {Popover} from './popover';
 
@@ -89,7 +90,7 @@ const ActionList = styled.div`
   z-index: 99;
   padding: 10px;
   margin-top: 8px;
-  min-width: 100px;
+  min-width: 210px;
   border-radius: 5px;
   background-color: #fff;
 
@@ -101,9 +102,10 @@ const ActionList = styled.div`
 `;
 
 export function LanguageSwitcherButton() {
+  const {currentTheme, toggleTheme} = useTheme();
   const [isActive, setIsActive] = useState(false);
 
-  const {i18n} = useTranslation();
+  const {i18n, t} = useTranslation();
   const isEnglish = i18n.language === 'en';
 
   const settingsIcon = (
@@ -142,13 +144,18 @@ export function LanguageSwitcherButton() {
         }}
       >
         <ActionList>
-          <div>options</div>
-          <div>options</div>
-          <div>options</div>
-          <div>options</div>
-          <div>options</div>
-          <div>options</div>
-          <div>options</div>
+          <div>
+            <ResetedButton
+              onClick={() => i18n.changeLanguage(isEnglish ? 'pt' : 'en')}
+            >
+              {t(isEnglish ? 'portuguese' : 'english')}
+            </ResetedButton>
+          </div>
+          <div>
+            <ResetedButton onClick={toggleTheme}>
+              {t(currentTheme === 'whiteMode' ? 'darkMode' : 'whiteMode')}
+            </ResetedButton>
+          </div>
         </ActionList>
       </Popover>
     </Wrapper>

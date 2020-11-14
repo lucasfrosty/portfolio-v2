@@ -1,6 +1,5 @@
 import React, {useState, cloneElement} from 'react';
 import {usePopper} from 'react-popper';
-import {Options as PopperOptions} from '@popperjs/core';
 
 interface Props {
   activator: React.ReactElement;
