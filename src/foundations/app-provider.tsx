@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {isSSR} from '../utilities/constants';
+
 import {ThemeProvider} from './ThemeProvider';
 
 interface Props {
@@ -7,5 +9,9 @@ interface Props {
 }
 
 export function AppProvider({children}: Props) {
+  if (isSSR) {
+    return null;
+  }
+
   return <ThemeProvider>{children}</ThemeProvider>;
 }
