@@ -74,6 +74,7 @@ interface SkillLogo {
 }
 
 const SecondHeader = styled.h2`
+  font-weight: 600;
   color: ${(props) => props.theme.primary};
 `;
 
