@@ -1,28 +1,36 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ThemeProvider as StyledComponentsThemeProvider} from 'styled-components';
 
 import {ThemeContext, themes, useLocalTheme} from '../../utilities/theme';
+import {isSSR} from '../../utilities/constants';
 
 interface Props {
   children: React.ReactNode;
 }
 
 export function ThemeProvider({children}: Props) {
-  const [currentTheme, setCurrentTheme] = useLocalTheme();
+  const [currentLocalTheme, setCurrentLocalTheme] = useLocalTheme();
+  const [theme, setTheme] = useState(currentLocalTheme);
+
+  if (isSSR) {
+    return null;
+  }
 
   return (
-    <StyledComponentsThemeProvider theme={themes[currentTheme]}>
-      <ThemeContext.Provider value={{toggleTheme, currentTheme}}>
+    <ThemeContext.Provider value={{toggleTheme, currentTheme: theme}}>
+      <StyledComponentsThemeProvider theme={themes[theme]}>
         {children}
-      </ThemeContext.Provider>
-    </StyledComponentsThemeProvider>
+      </StyledComponentsThemeProvider>
+    </ThemeContext.Provider>
   );
 
   function toggleTheme() {
-    if (currentTheme === 'darkMode') {
-      setCurrentTheme('lightMode');
+    if (theme === 'darkMode') {
+      setTheme('lightMode');
+      setCurrentLocalTheme('lightMode');
     } else {
-      setCurrentTheme('darkMode');
+      setTheme('darkMode');
+      setCurrentLocalTheme('darkMode');
     }
   }
 }

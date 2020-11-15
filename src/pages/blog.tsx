@@ -44,6 +44,12 @@ export default function Blog() {
     </span>
   );
 
+  const mediumLink = (
+    <a href="https://medium.com/@lucasfrosty" rel="noreferrer" target="_blank">
+      Medium
+    </a>
+  );
+
   return (
     <Layout>
       <SEO title="Blog" />
@@ -53,15 +59,7 @@ export default function Blog() {
           <Text>
             <Trans i18nKey="whyMedium">
               I&apos;m too lazy to implement a blog myself so i&apos;ll be doing
-              my posts on
-              <a
-                href="https://medium.com/@lucasfrosty"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Medium
-              </a>
-              .
+              my posts on {mediumLink}.
             </Trans>
           </Text>
 
