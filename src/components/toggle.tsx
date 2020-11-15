@@ -1,3 +1,8 @@
+/*
+ * Original code from https://github.com/aaronshaf/react-toggle/
+ * with some code adaptations to run in Typescript
+ **/
+
 /* eslint-disable */
 import React, {PureComponent} from 'react';
 import classNames from 'classnames';
