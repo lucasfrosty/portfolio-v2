@@ -140,12 +140,12 @@ export function SettingsButton() {
               defaultChecked={isEnglish}
               onChange={() => i18n.changeLanguage(isEnglish ? 'pt' : 'en')}
               icons={{
-                checked: <Brazil width="14" height="14" />,
-                unchecked: <UK width="12" height="14" />,
+                checked: <UK width="12" height="14" />,
+                unchecked: <Brazil width="14" height="14" />,
               }}
             />
             <label htmlFor={Id.LanguageSwitcher}>
-              {t(isEnglish ? 'portuguese' : 'english')}
+              {t(isEnglish ? 'english' : 'portuguese')}
             </label>
           </div>
           <div>
@@ -153,13 +153,13 @@ export function SettingsButton() {
               defaultChecked={currentTheme === 'lightMode'}
               onChange={toggleTheme}
               icons={{
-                checked: <Moon width="13" height="13" />,
-                unchecked: <Sun width="13" height="13" />,
+                checked: <Sun width="13" height="13" />,
+                unchecked: <Moon width="13" height="13" />,
               }}
               id={Id.ThemeSwitcher}
             />
             <label htmlFor={Id.ThemeSwitcher}>
-              {t(currentTheme === 'lightMode' ? 'darkMode' : 'lightMode')}
+              {t(currentTheme === 'lightMode' ? 'lightMode' : 'darkMode')}
             </label>
           </div>
         </ActionList>

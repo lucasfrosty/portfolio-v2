@@ -1,8 +1,8 @@
 {
   "settingsButtonLabel": "Abrir menu de configurações",
-  "darkMode": "Dark mode",
-  "lightMode": "Light mode",
-  "portuguese": "Portuguese",
+  "darkMode": "Modo escuro",
+  "lightMode": "Modo claro",
+  "portuguese": "Português",
   "english": "Inglês",
   "description": "Olá! Eu sou Lucas. Front end developer.",
   "description2": "Sou brasileiro mas atualmente moro em Ottawa, Canadá onde trabalho na <1>Shopify</1>.",

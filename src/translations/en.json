@@ -1,7 +1,7 @@
 {
   "settingsButtonLabel": "Open settings menu",
-  "darkMode": "Modo escuro",
-  "lightMode": "Modo claro",
+  "darkMode": "Dark mode",
+  "lightMode": "Light mode",
   "portuguese": "Portuguese",
   "english": "English",
   "description": "Hello! I'm Lucas. Front end developer.",
