@@ -62,7 +62,7 @@ const Wrapper = styled.span`
   display: flex;
 
   @media only screen and (min-width: 1550px) {
-    padding-right: 10%;
+    padding-right: 5%;
   }
 `;
 

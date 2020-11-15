@@ -17,7 +17,7 @@ const Link = styled.a`
 
 export function AccessibleLink({fixed, description, url}: Props) {
   return (
-    <Link target="_blank" href={url}>
+    <Link target="_blank" rel="noreferrer" href={url}>
       <Img aria-hidden fixed={fixed} />
       <VisuallyHidden>{description}</VisuallyHidden>
     </Link>

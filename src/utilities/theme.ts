@@ -30,7 +30,7 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
     text: 'rgba(255, 255, 255, 0.9)',
     link: 'rgba(255, 255, 255, 0.8)',
     shadow: '7px 7px 23px -3px rgba(59, 63, 69, 0.15)',
-    border: '#2e2e2e',
+    border: '#454545',
     highlight: '#fff',
   },
 };
