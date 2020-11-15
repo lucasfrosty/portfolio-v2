@@ -7,7 +7,7 @@ import {useLocation} from '@reach/router';
 import {Route} from '../utilities/routes';
 import {globalWrapperMargin} from '../utilities/styles';
 
-import {LanguageSwitcherButton} from './language-switcher-button';
+import {SettingsButton} from './settings-button';
 
 interface LinkProperties {
   content: string;
@@ -100,7 +100,7 @@ export function Header() {
           </StyledLink>
         ))}
       </div>
-      <LanguageSwitcherButton />
+      <SettingsButton />
     </Navbar>
   );
 

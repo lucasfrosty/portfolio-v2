@@ -1,33 +1,19 @@
+/* eslint-disable jsx-a11y/label-has-for */
+/* disabling because React is not smart enough to detect that the
+Toggle component is actually a html input, so it had issues with the way i was using htmlFor */
+
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
-// import {graphql} from 'gatsby';
 import styled from 'styled-components';
 
-import {Settings} from '../icons';
+import {Settings, Moon, Sun, Brazil, UK} from '../icons';
 import {breakPointsInPx} from '../utilities/styles';
 import {useTheme} from '../utilities/theme';
 
+import {Toggle} from './toggle';
 import {Popover} from './popover';
 
-// export const query = graphql`
-//   query {
-//     USFlag: file(relativePath: {eq: "us.png"}) {
-//       childImageSharp {
-//         fixed(width: 32, height: 32) {
-//           ...GatsbyImageSharpFixed
-//         }
-//       }
-//     }
-
-//     BRFlag: file(relativePath: {eq: "brazil.png"}) {
-//       childImageSharp {
-//         fixed(width: 32, height: 32) {
-//           ...GatsbyImageSharpFixed
-//         }
-//       }
-//     }
-//   }
-// `;
+import './toggle.css';
 
 const ResetedButton = styled.button.attrs((props) => ({
   'aria-label': props['aria-label'],
@@ -90,7 +76,7 @@ const ActionList = styled.div`
   z-index: 99;
   padding: 10px;
   margin-top: 8px;
-  min-width: 210px;
+  min-width: 150px;
   border-radius: 5px;
   color: ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.background};
@@ -98,39 +84,43 @@ const ActionList = styled.div`
   -webkit-box-shadow: ${(props) => props.theme.shadow};
   -moz-box-shadow: ${(props) => props.theme.shadow};
   box-shadow: ${(props) => props.theme.shadow};
+
+  & > *:not(:first-child) {
+    margin-top: 8px;
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+
+    & > *:not(:first-child) {
+      margin-left: 6px;
+    }
+  }
 `;
 
-export function LanguageSwitcherButton() {
+enum Id {
+  ThemeSwitcher = 'THEME_SWITCHER_UNIQUE_ID',
+  LanguageSwitcher = 'LANGUAGE_SWITCHER_UNIQUE_ID',
+}
+
+export function SettingsButton() {
   const {currentTheme, toggleTheme} = useTheme();
   const [isActive, setIsActive] = useState(false);
 
   const {i18n, t} = useTranslation();
   const isEnglish = i18n.language === 'en';
 
-  const settingsIcon = (
-    <SettingsIconWrapper>
-      <Settings />
-    </SettingsIconWrapper>
-  );
-
-  const buttonOptions = isEnglish
-    ? {
-        onClick: () => i18n.changeLanguage('pt'),
-        children: settingsIcon,
-        'aria-label': 'Mudar para inglês',
-      }
-    : {
-        onClick: () => i18n.changeLanguage('en'),
-        children: settingsIcon,
-        'aria-label': 'Switch to portuguese',
-      };
-
   const activator = (
     <ResetedButton
-      {...buttonOptions}
       role="button"
       onClick={() => setIsActive((prev) => !prev)}
-    />
+      aria-label={t('settingsButtonLabel')}
+    >
+      <SettingsIconWrapper>
+        <Settings />
+      </SettingsIconWrapper>
+    </ResetedButton>
   );
 
   return (
@@ -145,16 +135,32 @@ export function LanguageSwitcherButton() {
       >
         <ActionList>
           <div>
-            <ResetedButton
-              onClick={() => i18n.changeLanguage(isEnglish ? 'pt' : 'en')}
-            >
+            <Toggle
+              id={Id.LanguageSwitcher}
+              defaultChecked={isEnglish}
+              onChange={() => i18n.changeLanguage(isEnglish ? 'pt' : 'en')}
+              icons={{
+                checked: <Brazil width="14" height="14" />,
+                unchecked: <UK width="12" height="14" />,
+              }}
+            />
+            <label htmlFor={Id.LanguageSwitcher}>
               {t(isEnglish ? 'portuguese' : 'english')}
-            </ResetedButton>
+            </label>
           </div>
           <div>
-            <ResetedButton onClick={toggleTheme}>
-              {t(currentTheme === 'whiteMode' ? 'darkMode' : 'whiteMode')}
-            </ResetedButton>
+            <Toggle
+              defaultChecked={currentTheme === 'lightMode'}
+              onChange={toggleTheme}
+              icons={{
+                checked: <Moon width="13" height="13" />,
+                unchecked: <Sun width="13" height="13" />,
+              }}
+              id={Id.ThemeSwitcher}
+            />
+            <label htmlFor={Id.ThemeSwitcher}>
+              {t(currentTheme === 'lightMode' ? 'darkMode' : 'lightMode')}
+            </label>
           </div>
         </ActionList>
       </Popover>

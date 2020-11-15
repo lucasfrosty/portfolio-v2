@@ -20,7 +20,7 @@ export function ThemeProvider({children}: Props) {
 
   function toggleTheme() {
     if (currentTheme === 'darkMode') {
-      setCurrentTheme('whiteMode');
+      setCurrentTheme('lightMode');
     } else {
       setCurrentTheme('darkMode');
     }

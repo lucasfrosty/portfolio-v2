@@ -9,8 +9,10 @@ interface Props {
   onClose(): void;
 }
 
-const childrenId = 'POPOVER_CHILDREN_ID';
-const activatorId = 'POPOVER_ACTIVATOR_ID';
+enum Id {
+  Children = 'POPOVER_CHILDREN_ID',
+  Activator = 'POPOVER_ACTIVATOR_ID',
+}
 
 export function Popover({
   activator,
@@ -42,7 +44,7 @@ export function Popover({
        the path property (but the object do) */
       const isClickOnChildrenOrActivator = (event as any).path.some(
         (node: HTMLElement) =>
-          node.id === childrenId || node.id === activatorId,
+          node.id === Id.Children || node.id === Id.Activator,
       );
 
       if (!isClickOnChildrenOrActivator) {
@@ -65,12 +67,12 @@ export function Popover({
   });
 
   const clonedActivator = cloneElement(activator, {
-    id: activatorId,
+    id: Id.Activator,
     ref: setReferenceElement,
   });
 
   const clonedChildren = cloneElement(children, {
-    id: childrenId,
+    id: Id.Children,
     ref: setPopperElement,
     style: styles.popper,
     ...attributes.popper,

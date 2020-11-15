@@ -13,9 +13,9 @@ export interface ThemeProperties {
   highlight: string;
 }
 
-export type ThemeMode = 'darkMode' | 'whiteMode';
+export type ThemeMode = 'darkMode' | 'lightMode';
 export const themes: Record<ThemeMode, ThemeProperties> = {
-  whiteMode: {
+  lightMode: {
     background: '#fff',
     primary: '#6c66e3',
     text: '#464646',
@@ -37,7 +37,7 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
 
 const LOCAL_STORAGE_KEY = 'lucas_frosty_blog_theme';
 export function useLocalTheme() {
-  return useLocalStorage<ThemeMode>(LOCAL_STORAGE_KEY, 'whiteMode');
+  return useLocalStorage<ThemeMode>(LOCAL_STORAGE_KEY, 'lightMode');
 }
 
 interface ContextType {
@@ -46,7 +46,7 @@ interface ContextType {
 }
 
 export const ThemeContext = createContext<ContextType>({
-  currentTheme: 'whiteMode',
+  currentTheme: 'lightMode',
   toggleTheme: noop,
 });
 
