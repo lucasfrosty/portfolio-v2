@@ -4,7 +4,7 @@ export interface MediumPost {
   date: Date;
 }
 
-export const posts: MediumPost[] = [
+export const postsFromMedium: MediumPost[] = [
   {
     url:
       'https://medium.com/jaguaribetech/introdu%C3%A7%C3%A3o-ao-redux-usando-apenas-javascript-6d6d55bd9be4',

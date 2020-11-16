@@ -8,3 +8,5 @@ export {Post} from './post';
 export {SpacedWrapper} from './spaced-wrapper';
 export {Title} from './title';
 export {JobDetails} from './job-details';
+export {SecondHeader} from './second-header';
+export {Divider} from './divider';

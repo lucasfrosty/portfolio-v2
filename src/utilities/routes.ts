@@ -3,3 +3,7 @@ export enum Route {
   Blog = '/blog/',
   Work = '/work/',
 }
+
+export function addFullPathToSubpath(subpath: string) {
+  return window.location.origin + subpath;
+}

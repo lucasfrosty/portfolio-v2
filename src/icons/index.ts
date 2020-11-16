@@ -5,3 +5,4 @@ export {default as Moon} from './moon.svg';
 export {default as Sun} from './sun.svg';
 export {default as Brazil} from './brazil.svg';
 export {default as UK} from './uk.svg';
+export {default as Calendar} from './calendar.svg';

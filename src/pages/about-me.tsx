@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import {breakPointsInPx} from '../utilities/styles';
 import {Route} from '../utilities/routes';
-import {SEO, Text, Layout, SpacedWrapper} from '../components';
+import {SEO, Text, Layout, SpacedWrapper, SecondHeader} from '../components';
 
 const SectionWrapper = styled.div`
   display: flex;
@@ -72,11 +72,6 @@ interface SkillLogo {
   alt: string;
   url: string;
 }
-
-const SecondHeader = styled.h2`
-  font-weight: 600;
-  color: ${(props) => props.theme.primary};
-`;
 
 export const query = graphql`
   query {
