@@ -43,8 +43,8 @@ const ImageWrapper = styled.div`
 `;
 const RoundedImage = styled((props) => <Img {...props} />)`
   border-radius: 100%;
-  border: 3px solid white;
-  box-shadow: 14px 19px 0px 5px ${(props) => props.theme.primary};
+  border: 3px solid ${(props) => props.theme.inverseBorder};
+  box-shadow: 7px 13px 0px 2px ${(props) => props.theme.primary};
   width: 400px;
   max-width: 400px;
   max-height: 400px;

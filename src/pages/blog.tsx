@@ -12,6 +12,7 @@ import {
   SEO,
   SecondHeader,
   Divider,
+  Newsletter,
 } from '../components';
 import {postsFromMedium} from '../utilities/posts';
 import {Plan} from '../icons';
@@ -23,8 +24,6 @@ const ImageWrapper = styled.div`
   margin: auto;
 
   @media only screen and (max-width: 1200px) {
-    margin-bottom: 30px;
-
     > svg {
       width: 350px;
       height: 350px;
@@ -39,6 +38,10 @@ const ImageWrapper = styled.div`
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
+
+  @media only screen and (max-width: 1000px) {
+    justify-content: center;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -60,7 +63,7 @@ export const postsQuery = graphql`
 `;
 
 export default function Blog() {
-  const {t, i18n} = useTranslation();
+  const {t} = useTranslation();
   const {
     allMarkdownRemark: {nodes: postsFromGatsby},
   } = useStaticQuery(postsQuery);
@@ -72,7 +75,7 @@ export default function Blog() {
         <TextWrapper>
           <Title>Blog</Title>
 
-          <SpacedWrapper margin="10px 0 0 0">
+          <SpacedWrapper margin="10px 0 80px 0">
             {postsFromGatsby.map(({frontmatter}: any) => (
               <Post
                 key={frontmatter.title}
@@ -83,16 +86,18 @@ export default function Blog() {
             ))}
           </SpacedWrapper>
 
-          <SpacedWrapper margin="50px 0 0 0">
-            <Divider />
-          </SpacedWrapper>
-
-          <SecondHeader margin="6px 0 12px 0">{t('mediumPosts')}</SecondHeader>
+          <SecondHeader style={{lineHeight: 1.3}} margin="12px 0">
+            {t('mediumPosts')}
+          </SecondHeader>
 
           <SpacedWrapper margin="10px 0 0 0">
             {postsFromMedium.map((post) => (
               <Post key={post.title} {...post} external />
             ))}
+          </SpacedWrapper>
+
+          <SpacedWrapper margin="60px 0 0 0">
+            <Newsletter />
           </SpacedWrapper>
         </TextWrapper>
         <ImageWrapper>

@@ -11,7 +11,7 @@ import {Text} from './text';
 
 const ComponentWrapper = styled.div`
   margin-bottom: 20px;
-  border-left: 2px solid ${(props) => props.theme.border};
+  border-left: 1px solid ${(props) => props.theme.border};
   font-size: 17px;
 
   line-height: 1.35;

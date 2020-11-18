@@ -1,7 +1,7 @@
 ---
-slug: '/blog/example-post-2'
-date: '2019-08-26'
-title: 'Example blog post 2'
+slug: '/blog/pt/todo'
+date: '2020-11-18'
+title: 'TODO Post'
 ---
 
 ### Test stuff

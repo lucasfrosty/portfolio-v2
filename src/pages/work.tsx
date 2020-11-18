@@ -12,8 +12,8 @@ const ImageWrapper = styled.div`
 
   @media only screen and (max-width: 1200px) {
     > svg {
-      width: 350px;
-      height: 350px;
+      width: 400px;
+      height: 400px;
     }
   }
 
@@ -48,7 +48,7 @@ export default function Blog() {
           ))}
         </TextWrapper>
         <ImageWrapper>
-          <Work width="400" height="400" />
+          <Work width="550" height="550" />
         </ImageWrapper>
       </Wrapper>
     </Layout>

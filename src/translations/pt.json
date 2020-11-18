@@ -1,5 +1,11 @@
 {
-  "mediumPosts": "Posts do Medium (apenas em pt-BR)",
+  "emailAlreadySubscribed": "Este email já foi inscrito anteriormente.",
+  "unexpectedError": "Erro inesperado, por favor tente novamente.",
+  "newsletterDescription": "Increva-se para ser notificado por email sobre um novo post.",
+  "yourEmail": "Seu email",
+  "unsubcribe": "Desinscreva-se quando quiser.",
+  "subscribe": "Inscrever-se",
+  "mediumPosts": "Posts do Medium",
   "settingsButtonLabel": "Abrir menu de configurações",
   "darkMode": "Modo escuro",
   "lightMode": "Modo claro",

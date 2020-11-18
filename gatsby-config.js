@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `lucasfrosty`,
@@ -5,6 +9,13 @@ module.exports = {
     author: `@lucasfrosty`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: process.env.MAILCHIMP_NEWSLETTER_API_URL,
+        timeout: 3500,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

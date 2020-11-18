@@ -3,10 +3,8 @@ import styled from 'styled-components';
 
 import {AppProvider} from '../foundations';
 import '../utilities/i18n';
-import {globalWrapperMargin, breakPointsInPx} from '../utilities/styles';
 
 import {Header} from './header';
-import {Circle} from './circle';
 import {SocialMedias} from './social-medias';
 import {GlobalStyle} from './global-style';
 
@@ -15,41 +13,26 @@ interface Props {
   paddingOverride?: string;
 }
 
-interface FixedPositionProps {
-  top?: number;
-  right?: number;
-  bottom?: number;
-  left?: number;
-  adjustRightMultiplier?: boolean;
-  disappearOnViewportWidth?: number;
-  disappearOnViewportHeight?: number;
-}
-
-const FixedPosition = styled.div<FixedPositionProps>`
-  position: fixed;
-  bottom: ${(props) => `${props.bottom}px`};
-  top: ${(props) => `${props.top}px`};
-  left: ${(props) => `${props.left}px`};
-  right: ${(props) => `${props.right}px`};
-  z-index: 2;
-
-  @media only screen and (max-width: ${(props) =>
-      props.disappearOnViewportWidth}px) {
-    display: none;
-  }
-
-  @media only screen and (max-height: ${(props) =>
-      props.disappearOnViewportHeight}px) {
-    display: none;
-  }
-`;
-
 const ContentWrapper = styled.div`
-  padding: 0 1.0875rem 1.45rem;
   position: relative;
+  margin-top: 70px;
+
+  @media only screen and (max-width: 470px) {
+    margin-top: 30px;
+  }
 
   @media only screen and (max-width: 1000px) {
     margin-bottom: 40px !important;
+  }
+`;
+
+const LayoutWrapper = styled.div`
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 1280px;
+
+  @media only screen and (max-width: 470px) {
+    padding: 16px 12px;
   }
 `;
 
@@ -57,37 +40,17 @@ export function Layout({children, paddingOverride}: Props) {
   return (
     <AppProvider>
       <GlobalStyle />
-      <Header />
-      <ContentWrapper
-        style={{
-          ...globalWrapperMargin,
-          ...(paddingOverride && {padding: paddingOverride}),
-        }}
-      >
-        <main>{children}</main>
-        <FixedPosition
-          disappearOnViewportWidth={
-            breakPointsInPx.layoutCirclesDisappear.width
-          }
-          top={-90}
-          right={-130}
+      <LayoutWrapper>
+        <Header />
+        <ContentWrapper
+          style={{
+            ...(paddingOverride && {padding: paddingOverride}),
+          }}
         >
-          <Circle size={300} />
-        </FixedPosition>
-        <FixedPosition
-          disappearOnViewportWidth={
-            breakPointsInPx.layoutCirclesDisappear.width
-          }
-          disappearOnViewportHeight={
-            breakPointsInPx.layoutCirclesDisappear.height
-          }
-          bottom={-200}
-          left={-130}
-        >
-          <Circle size={300} />
-        </FixedPosition>
-        <SocialMedias />
-      </ContentWrapper>
+          <main>{children}</main>
+          <SocialMedias />
+        </ContentWrapper>
+      </LayoutWrapper>
     </AppProvider>
   );
 }

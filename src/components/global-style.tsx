@@ -9,9 +9,12 @@ export const GlobalStyleComponent = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Baloo 2', Helvetica, Sans-Serif;
     height: 100vh;
     background-color: ${(props) => props.theme.background};
+  }
+
+  * {
+    font-family: 'Baloo 2', Helvetica, Sans-Serif;
   }
 
   a {

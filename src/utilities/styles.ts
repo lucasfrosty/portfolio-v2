@@ -1,15 +1,5 @@
 export const breakPointsInPx = {
   aboutMe: 1000,
-  layoutCirclesDisappear: {
-    width: 1000,
-    height: 780,
-  },
-};
-
-export const globalWrapperMargin: React.CSSProperties = {
-  margin: '0 auto',
-  padding: 30,
-  maxWidth: 1280,
 };
 
 function addColorEdges(colorNumber: number): number {
