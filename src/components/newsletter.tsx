@@ -186,15 +186,12 @@ export function Newsletter() {
     setRequestStatus('fetching');
 
     try {
-      const x = await addToMailchimp(email, {
+      const {result, msg} = await addToMailchimp(email, {
         locale,
       });
 
-      const {result, msg} = x;
-      const isEmailAlreadySubscribed = msg.includes('is already subscribed');
-
       if (result === 'error') {
-        handleError(isEmailAlreadySubscribed);
+        handleError(msg);
       } else {
         handleSuccess();
       }
@@ -203,10 +200,19 @@ export function Newsletter() {
     }
   }
 
-  function handleError(isEmailAlreadySubscribed: boolean) {
-    const errorMessageSubscriptionKey = isEmailAlreadySubscribed
-      ? 'emailAlreadySubscribed'
-      : 'unexpectedError';
+  function handleError(msg: string) {
+    const isEmailInvalid = msg.includes('The email you entered is not valid.');
+    const isEmailAlreadySubscribed = msg.includes('is already subscribed');
+
+    let errorMessageSubscriptionKey = '';
+
+    if (isEmailAlreadySubscribed) {
+      errorMessageSubscriptionKey = 'emailAlreadySubscribed';
+    } else if (isEmailInvalid) {
+      errorMessageSubscriptionKey = 'invalidEmail';
+    } else {
+      errorMessageSubscriptionKey = 'unexpectedError';
+    }
 
     setEmail('');
     setRequestStatus('error');

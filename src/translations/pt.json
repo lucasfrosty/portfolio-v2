@@ -1,5 +1,6 @@
 {
-  "emailAlreadySubscribed": "Este email já foi inscrito anteriormente.",
+  "invalidEmail": "Email inválido",
+  "emailAlreadySubscribed": "Email já foi inscrito anteriormente.",
   "unexpectedError": "Erro inesperado, por favor tente novamente.",
   "newsletterDescription": "Increva-se para ser notificado por email sobre um novo post.",
   "yourEmail": "Seu email",
