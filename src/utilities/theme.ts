@@ -27,7 +27,7 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
     shadow: '7px 7px 23px -3px rgba(149, 157, 165, 0.25)',
     border: '#dfe3e8',
     highlight: '#000',
-    cardShadow: 'rgba(210, 214, 220, 0.5) 0px 2px 15px 0px',
+    cardShadow: 'rgba(210, 214, 220, 0.9) 0px 2px 15px 0px',
     subscriptionButtonBorder() {
       return this.primary;
     },

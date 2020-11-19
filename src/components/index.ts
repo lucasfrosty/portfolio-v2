@@ -14,3 +14,4 @@ export {Newsletter} from './newsletter';
 export {Card} from './card';
 export {Spinner} from './spinner';
 export {Banner} from './banner';
+export {PostSwitchCard} from './post-switch-card';

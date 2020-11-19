@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import {useTranslation} from 'react-i18next';
 import {graphql} from 'gatsby';
 
 import {Layout, Newsletter, SEO, SpacedWrapper} from '../components';
 
 import './blog-template.css';
 import {useLocation} from '@reach/router';
+import {PostSwitchCard} from '../components';
 
 const Wrapper = styled.div`
   margin: auto;
@@ -81,7 +83,11 @@ export default function Template({
     markdownRemark: {frontmatter, html},
   },
 }: any) {
+  const {i18n} = useTranslation();
   const routeLocation = useLocation();
+  const slugLanguage = frontmatter.slug.includes('/en/') ? 'en' : 'pt';
+
+  const isLanguageDifferentThanPostLanguage = i18n.language !== slugLanguage;
 
   return (
     <>
@@ -123,8 +129,10 @@ export default function Template({
       />
       <Layout>
         <Wrapper>
+          {isLanguageDifferentThanPostLanguage && (
+            <PostSwitchCard url={frontmatter.slug} />
+          )}
           <Title>{frontmatter.title}</Title>
-          {/* <h2>{frontmatter.date}</h2> */}
           <PostWrapper dangerouslySetInnerHTML={{__html: html}} />
           <SpacedWrapper margin="32px 0 0 0">
             <Newsletter />
