@@ -1,20 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import {graphql, useStaticQuery} from 'gatsby';
 import {useTranslation} from 'react-i18next';
 
 import {
   Layout,
-  Text,
   Post,
   SpacedWrapper,
   Title,
   SEO,
   SecondHeader,
-  Divider,
   Newsletter,
 } from '../components';
-import {postsFromMedium} from '../utilities/posts';
+import {postsFromMedium, useLocalizedPosts} from '../utilities/posts';
 import {Plan} from '../icons';
 import {formatGatsbyDateFormatToBlogFormat} from '../utilities/dates';
 import {addFullPathToSubpath} from '../utilities/routes';
@@ -48,25 +45,9 @@ const TextWrapper = styled.div`
   max-width: 600px;
 `;
 
-export const postsQuery = graphql`
-  query {
-    allMarkdownRemark {
-      nodes {
-        frontmatter {
-          date(formatString: "YYYY-DD-MM")
-          slug
-          title
-        }
-      }
-    }
-  }
-`;
-
 export default function Blog() {
   const {t} = useTranslation();
-  const {
-    allMarkdownRemark: {nodes: postsFromGatsby},
-  } = useStaticQuery(postsQuery);
+  const postsFromGatsby = useLocalizedPosts();
 
   return (
     <Layout>
@@ -76,12 +57,12 @@ export default function Blog() {
           <Title>Blog</Title>
 
           <SpacedWrapper margin="10px 0 80px 0">
-            {postsFromGatsby.map(({frontmatter}: any) => (
+            {postsFromGatsby.map(({title, slug, date}) => (
               <Post
-                key={frontmatter.title}
-                title={frontmatter.title}
-                url={addFullPathToSubpath(frontmatter.slug)}
-                date={formatGatsbyDateFormatToBlogFormat(frontmatter.date)}
+                key={title}
+                title={title}
+                url={addFullPathToSubpath(slug)}
+                date={formatGatsbyDateFormatToBlogFormat(date)}
               />
             ))}
           </SpacedWrapper>

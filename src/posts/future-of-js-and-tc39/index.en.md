@@ -1,7 +1,7 @@
 ---
-slug: '/blog/pt/todo'
-date: '2020-11-18'
-title: 'TODO Post'
+slug: '/blog/en/tc39'
+date: '2020-11-19'
+title: 'TC39 and the future of Javascript'
 ---
 
 ### Test stuff
