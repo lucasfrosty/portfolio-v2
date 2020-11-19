@@ -9,9 +9,5 @@ interface Props {
 }
 
 export function AppProvider({children}: Props) {
-  if (isSSR) {
-    return null;
-  }
-
   return <ThemeProvider>{children}</ThemeProvider>;
 }

@@ -14,9 +14,10 @@ interface Props {
   description?: string;
   meta?: any[];
   title: string;
+  pathname?: string;
 }
 
-export function SEO({description = '', meta = [], title}: Props) {
+export function SEO({description = '', meta = [], title, pathname}: Props) {
   const {i18n} = useTranslation();
   const {site} = useStaticQuery(
     graphql`
@@ -32,6 +33,8 @@ export function SEO({description = '', meta = [], title}: Props) {
     `,
   );
 
+  const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
+
   const metaDescription = description || site.siteMetadata.description;
 
   return (
@@ -41,6 +44,16 @@ export function SEO({description = '', meta = [], title}: Props) {
       }}
       title={title}
       titleTemplate={`${site.siteMetadata.title} | %s`}
+      link={
+        canonical
+          ? [
+              {
+                rel: 'canonical',
+                href: canonical,
+              },
+            ]
+          : []
+      }
       meta={[
         {
           name: `description`,

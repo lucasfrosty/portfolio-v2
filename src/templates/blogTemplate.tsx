@@ -5,6 +5,7 @@ import {graphql} from 'gatsby';
 import {Layout, Newsletter, SEO, SpacedWrapper} from '../components';
 
 import './blog-template.css';
+import {useLocation} from '@reach/router';
 
 const Wrapper = styled.div`
   margin: auto;
@@ -80,12 +81,23 @@ export default function Template({
     markdownRemark: {frontmatter, html},
   },
 }: any) {
+  const routeLocation = useLocation();
+
   return (
     <Layout>
       <SEO
         title={frontmatter.title}
         description={frontmatter.description}
+        pathname={routeLocation.pathname}
         meta={[
+          {
+            name: 'og:image',
+            content: frontmatter.thumbnail,
+          },
+          {
+            name: 'og:image:height',
+            content: 200,
+          },
           {
             name: 'og:image',
             content: frontmatter.thumbnail,
@@ -101,10 +113,6 @@ export default function Template({
           {
             name: 'article:published_time',
             content: frontmatter.date,
-          },
-          {
-            name: 'twitter:image',
-            content: frontmatter.thumbnail,
           },
           {
             name: 'twitter:image',
