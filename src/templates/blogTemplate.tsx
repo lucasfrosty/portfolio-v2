@@ -67,6 +67,9 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         slug
         title
+        thumbnail
+        subject
+        description
       }
     }
   }
@@ -79,7 +82,36 @@ export default function Template({
 }: any) {
   return (
     <Layout>
-      <SEO title={frontmatter.title} />
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.description}
+        meta={[
+          {
+            name: 'og:image',
+            content: frontmatter.thumbnail,
+          },
+          {
+            name: 'twitter:image',
+            content: frontmatter.thumbnail,
+          },
+          {
+            name: 'article:section',
+            content: frontmatter.subject,
+          },
+          {
+            name: 'article:published_time',
+            content: frontmatter.date,
+          },
+          {
+            name: 'twitter:image',
+            content: frontmatter.thumbnail,
+          },
+          {
+            name: 'twitter:image',
+            content: frontmatter.thumbnail,
+          },
+        ]}
+      />
       <Wrapper>
         <Title>{frontmatter.title}</Title>
         {/* <h2>{frontmatter.date}</h2> */}

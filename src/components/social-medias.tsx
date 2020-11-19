@@ -53,9 +53,7 @@ export const query = graphql`
 `;
 
 export function SocialMedias() {
-  const {GithubLogo, LinkedinLogo, MediumLogo, InstagramLogo} = useStaticQuery(
-    query,
-  );
+  const {GithubLogo, LinkedinLogo, InstagramLogo} = useStaticQuery(query);
 
   const socialMedias: AccessibleLinkProps[] = [
     {

@@ -12,7 +12,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: node.env.GA_API_KEY,
+        trackingId: process.env.GA_API_KEY,
       },
     },
     {
