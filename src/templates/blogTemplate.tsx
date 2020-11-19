@@ -96,6 +96,14 @@ export default function Template({
             content: frontmatter.thumbnail,
           },
           {
+            property: 'og:image:width',
+            content: 200,
+          },
+          {
+            property: 'og:image:height',
+            content: 200,
+          },
+          {
             property: 'twitter:image',
             content: frontmatter.thumbnail,
           },
