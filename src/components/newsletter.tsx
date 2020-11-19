@@ -127,8 +127,8 @@ export function Newsletter() {
     email: t('yourEmail'),
   };
 
-  const subscribeContent =
-    requestStatus === 'fetching' ? <Spinner /> : t('subscribe');
+  const isFetching = requestStatus === 'fetching';
+  const subscribeContent = isFetching ? <Spinner /> : t('subscribe');
 
   const errorMessage = errorMessageKey ? t(errorMessageKey) : null;
 
@@ -137,6 +137,14 @@ export function Newsletter() {
       <ErrorBanner onClose={dismissErrorBanner}>{errorMessage}</ErrorBanner>
     </SpacedWrapper>
   );
+
+  const fetchingDataProps = isFetching
+    ? {
+        'aria-busy': true,
+        disabled: true,
+        'aria-live': 'polite',
+      }
+    : null;
 
   return (
     <Card>
@@ -147,7 +155,7 @@ export function Newsletter() {
       <Text>{t('newsletterDescription')}</Text>
       <SpacedWrapper
         style={{lineHeight: 1.3, width: '100%'}}
-        margin="24px 0 0 0 "
+        margin="24px 0 0 0"
       >
         {errorMarkup}
         <div>
@@ -162,7 +170,9 @@ export function Newsletter() {
                 aria-label={labels.email}
               />
             </Label>
-            <Button type="submit">{subscribeContent}</Button>
+            <Button type="submit" {...fetchingDataProps}>
+              {subscribeContent}
+            </Button>
           </Form>
         </div>
       </SpacedWrapper>
