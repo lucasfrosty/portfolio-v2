@@ -4,7 +4,7 @@ date: '2020-11-19'
 title: 'TC39 the future of JavaScript'
 thumbnail: 'https://user-images.githubusercontent.com/15235605/99621800-c2185400-29f6-11eb-819b-abedfa69f1ce.png'
 subject: 'JavaScript'
-description: 'How JavaScript evolves and who is the process of adding new features to the language'
+description: 'TC39? JavaScript? ECMAScript? This article explains how JavaScript evolves and who is the process of adding new features to the language'
 ---
 
 Hi everybody, how is it going?

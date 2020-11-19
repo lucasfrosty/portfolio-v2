@@ -64,6 +64,10 @@ export function SEO({description = '', meta = [], title, pathname}: Props) {
           content: title,
         },
         {
+          name: 'author',
+          content: 'Lucas Ferreira',
+        },
+        {
           property: `og:description`,
           content: metaDescription,
         },

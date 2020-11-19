@@ -4,7 +4,7 @@ date: '2020-11-19'
 title: 'TC39 e o futuro do JavaScript'
 thumbnail: 'https://user-images.githubusercontent.com/15235605/99621800-c2185400-29f6-11eb-819b-abedfa69f1ce.png'
 subject: 'JavaScript'
-description: 'Como o JavaScript evolui e como funciona o processo de adição de novas funcionalidades'
+description: 'TC39? JavaScript? ECMAScript? Esse artigo explica como o JavaScript evolui e como funciona o processo de adição de novas funcionalidades'
 ---
 
 Olá meu povo bonito, como é que vocês estão?

@@ -91,31 +91,24 @@ export default function Template({
         pathname={routeLocation.pathname}
         meta={[
           {
-            name: 'og:image',
+            name: 'image',
+            property: 'og:image',
             content: frontmatter.thumbnail,
           },
           {
-            name: 'og:image:height',
-            content: 200,
-          },
-          {
-            name: 'og:image',
+            property: 'twitter:image',
             content: frontmatter.thumbnail,
           },
           {
-            name: 'twitter:image',
-            content: frontmatter.thumbnail,
-          },
-          {
-            name: 'article:section',
+            property: 'article:section',
             content: frontmatter.subject,
           },
           {
-            name: 'article:published_time',
+            property: 'article:published_time',
             content: frontmatter.date,
           },
           {
-            name: 'twitter:image',
+            property: 'twitter:image',
             content: frontmatter.thumbnail,
           },
         ]}
