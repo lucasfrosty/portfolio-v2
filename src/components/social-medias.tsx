@@ -42,14 +42,6 @@ export const query = graphql`
       }
     }
 
-    MediumLogo: file(relativePath: {eq: "medium.png"}) {
-      childImageSharp {
-        fixed(width: 32, height: 32) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-
     InstagramLogo: file(relativePath: {eq: "instagram.png"}) {
       childImageSharp {
         fixed(width: 32, height: 32) {
@@ -75,11 +67,6 @@ export function SocialMedias() {
       fixed: LinkedinLogo.childImageSharp.fixed,
       description: 'Opens my linkedin page in a new tab',
       url: 'https://www.linkedin.com/in/lucasfrosty/',
-    },
-    {
-      fixed: MediumLogo.childImageSharp.fixed,
-      description: 'Opens my medium page in a new tab',
-      url: 'https://medium.com/@lucasfrosty',
     },
     {
       fixed: InstagramLogo.childImageSharp.fixed,

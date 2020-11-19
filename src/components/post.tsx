@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'gatsby';
 import styled from 'styled-components';
+import {OutboundLink} from 'gatsby-plugin-google-analytics';
 
 import {MediumPost} from '../utilities/posts';
 import {i18n} from '../utilities/i18n';
@@ -62,9 +63,14 @@ export function Post({date, title, url, external = false}: Props) {
 
     if (external) {
       return (
-        <a target="_blank" rel="noreferrer" href={url} {...sharedProps}>
+        <OutboundLink
+          target="_blank"
+          rel="noreferrer"
+          href={url}
+          {...sharedProps}
+        >
           {title}
-        </a>
+        </OutboundLink>
       );
     }
 

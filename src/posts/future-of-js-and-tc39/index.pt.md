@@ -6,7 +6,7 @@ title: 'TC39 e o futuro do JavaScript'
 
 Olá meu povo bonito, como é que vocês estão?
 
-Fazem quase 3 anos desde a última vez que eu escrevi um artigo e muita coisa aconteceu desde então, mas eu não vou falar sobre isso agora, prefiro deixar esse papo pro final do artigo e ir direto pro que interessa: O TC39.
+Faz muito tempo escrevi um artigo e muita coisa aconteceu desde então, mas eu não vou falar sobre isso agora, prefiro deixar esse papo pro final do artigo e ir direto pro que interessa: O TC39.
 
 <hr />
 
@@ -96,7 +96,7 @@ Todas as propostas na fase 4 podem ser vistas [aqui](https://github.com/tc39/pro
 
 <hr />
 
-## Algumas exemplos de funcionalidades
+## Alguns exemplos de funcionalidades
 
 ### [Optional Chaining](https://github.com/tc39/proposal-optional-chaining)
 
@@ -162,3 +162,21 @@ No momento que eu escrevo este artigo essa proposta está na fase 2.
 - https://tc39.es/
 - http://www.ecma-international.org/
 - https://developer.mozilla.org/en-US/docs/Glossary/ECMAScript
+
+<hr />
+
+## Isso é tudo, pessoal
+
+Primeiramente obrigado por ter chegado até aqui. Espero que você tenha aprendido algo novo hoje e que esse artigo tenha te ajudado de alguma forma.
+
+Meu último artigo tinha sido escrito em fevereiro de 2018, então fazem quase 3 anos que eu não fazia isso. Desde então muita coisa rolou: eu saí da minha terra natal, larguei minha (segunda) faculdade pra realizar meu sonho de morar em terras Canadenses, e fazendo aquilo que eu amo. Talvez eu escreva algo sobre isso no futuro falando sobre tudo: a empresa que eu trabalho e como é o processo e também algumas dicas pra quem quer seguir o mesmo rumo.
+
+Nessa minha jornada uma das coisas que eu sempre pensava era sobre voltar a escrever. Gastei alguns dias fazendo essa plataforma aqui quase que do 0 (apesar de que o Gatsby ajuda bastante) porque eu acho que chegou o momento de voltar. Então se você gostou desse artigo e quer acompanhar meus próximos posts, se inscreve na minha Newsletter aí em baixo, basta digitar seu email e eu vou te mandar uma notificaçãozinha sempre que tiver um post novo :)
+
+No mais, aqui estão minhas redes sociais caso você queira me seguir:
+
+- [Github](https://github.com/lucasfrosty)
+- [Linkedin](https://www.linkedin.com/in/lucasfrosty/)
+- [Instagram](https://www.instagram.com/lucasfrosty/)
+
+Acho que é isso, falow!!
