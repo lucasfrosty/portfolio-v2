@@ -33,7 +33,7 @@ export function SEO({description = '', meta = [], title, pathname}: Props) {
     `,
   );
 
-  const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null;
+  const canonical = pathname ? `https://www.lucasfrosty.me${pathname}` : null;
 
   const metaDescription = description || site.siteMetadata.description;
 

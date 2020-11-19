@@ -5,13 +5,7 @@ export function useLocalStorage<T>(
   key: string,
   initialValue: T,
 ): [T, (value: T) => void] {
-  const [storedValue, setStoredValue] = useState<T>(initialValue);
-
-  useEffect(() => {
-    if (!isSSR) {
-      setStoredValue(getValue());
-    }
-  }, [isSSR]);
+  const [storedValue, setStoredValue] = useState<T>(getValue());
 
   function setValue(value: T) {
     try {

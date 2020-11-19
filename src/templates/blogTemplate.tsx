@@ -84,7 +84,7 @@ export default function Template({
   const routeLocation = useLocation();
 
   return (
-    <Layout>
+    <>
       <SEO
         title={frontmatter.title}
         description={frontmatter.description}
@@ -120,14 +120,16 @@ export default function Template({
           },
         ]}
       />
-      <Wrapper>
-        <Title>{frontmatter.title}</Title>
-        {/* <h2>{frontmatter.date}</h2> */}
-        <PostWrapper dangerouslySetInnerHTML={{__html: html}} />
-        <SpacedWrapper margin="32px 0 0 0">
-          <Newsletter />
-        </SpacedWrapper>
-      </Wrapper>
-    </Layout>
+      <Layout>
+        <Wrapper>
+          <Title>{frontmatter.title}</Title>
+          {/* <h2>{frontmatter.date}</h2> */}
+          <PostWrapper dangerouslySetInnerHTML={{__html: html}} />
+          <SpacedWrapper margin="32px 0 0 0">
+            <Newsletter />
+          </SpacedWrapper>
+        </Wrapper>
+      </Layout>
+    </>
   );
 }

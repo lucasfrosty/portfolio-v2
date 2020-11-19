@@ -194,38 +194,40 @@ export default function AboutMe() {
   /* eslint-enable */
 
   return (
-    <Layout>
+    <>
       <SEO title={t('aboutMePageTitle')} />
-      <SectionWrapper>
-        <DescriptionWrapper>
-          <NameHeader>Lucas Ferreira</NameHeader>
-          <Text>{t('description')}</Text>
-          <SpacedWrapper margin="25px 0 0 0" atBreakpoint={550}>
-            <Text>{translatedDescription2}</Text>
-          </SpacedWrapper>
-          <SpacedWrapper margin="30px 0 0 0">
-            <Text>{t('description3')}</Text>
-          </SpacedWrapper>
-          <SpacedWrapper margin="80px 0 0 0">
-            <SecondHeader>{t('skills')}</SecondHeader>
-            <div>
+      <Layout>
+        <SectionWrapper>
+          <DescriptionWrapper>
+            <NameHeader>Lucas Ferreira</NameHeader>
+            <Text>{t('description')}</Text>
+            <SpacedWrapper margin="25px 0 0 0" atBreakpoint={550}>
+              <Text>{translatedDescription2}</Text>
+            </SpacedWrapper>
+            <SpacedWrapper margin="30px 0 0 0">
+              <Text>{t('description3')}</Text>
+            </SpacedWrapper>
+            <SpacedWrapper margin="80px 0 0 0">
+              <SecondHeader>{t('skills')}</SecondHeader>
               <div>
-                {skillListLogos.map(({url, fixed, marginLeft = 15, alt}) => (
-                  <a href={url} target="_blank" rel="noreferrer" key={alt}>
-                    <Img alt={alt} fixed={fixed} style={{marginLeft}} />
-                  </a>
-                ))}
+                <div>
+                  {skillListLogos.map(({url, fixed, marginLeft = 15, alt}) => (
+                    <a href={url} target="_blank" rel="noreferrer" key={alt}>
+                      <Img alt={alt} fixed={fixed} style={{marginLeft}} />
+                    </a>
+                  ))}
+                </div>
+                <SpacedWrapper margin="25px 0 0 0">
+                  <Text caption>{translatedWorkDescription}</Text>
+                </SpacedWrapper>
               </div>
-              <SpacedWrapper margin="25px 0 0 0">
-                <Text caption>{translatedWorkDescription}</Text>
-              </SpacedWrapper>
-            </div>
-          </SpacedWrapper>
-        </DescriptionWrapper>
-        <ImageWrapper>
-          <RoundedImage fixed={Me.childImageSharp.fixed} alt="My photo" />
-        </ImageWrapper>
-      </SectionWrapper>
-    </Layout>
+            </SpacedWrapper>
+          </DescriptionWrapper>
+          <ImageWrapper>
+            <RoundedImage fixed={Me.childImageSharp.fixed} alt="My photo" />
+          </ImageWrapper>
+        </SectionWrapper>
+      </Layout>
+    </>
   );
 }

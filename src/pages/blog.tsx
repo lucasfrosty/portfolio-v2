@@ -50,41 +50,43 @@ export default function Blog() {
   const postsFromGatsby = useLocalizedPosts();
 
   return (
-    <Layout>
+    <>
       <SEO title="Blog" />
-      <Wrapper>
-        <TextWrapper>
-          <Title>Blog</Title>
+      <Layout>
+        <Wrapper>
+          <TextWrapper>
+            <Title>Blog</Title>
 
-          <SpacedWrapper margin="10px 0 80px 0">
-            {postsFromGatsby.map(({title, slug, date}) => (
-              <Post
-                key={title}
-                title={title}
-                url={addFullPathToSubpath(slug)}
-                date={formatGatsbyDateFormatToBlogFormat(date)}
-              />
-            ))}
-          </SpacedWrapper>
+            <SpacedWrapper margin="10px 0 80px 0">
+              {postsFromGatsby.map(({title, slug, date}) => (
+                <Post
+                  key={title}
+                  title={title}
+                  url={addFullPathToSubpath(slug)}
+                  date={formatGatsbyDateFormatToBlogFormat(date)}
+                />
+              ))}
+            </SpacedWrapper>
 
-          <SecondHeader style={{lineHeight: 1.3}} margin="12px 0">
-            {t('mediumPosts')}
-          </SecondHeader>
+            <SecondHeader style={{lineHeight: 1.3}} margin="12px 0">
+              {t('mediumPosts')}
+            </SecondHeader>
 
-          <SpacedWrapper margin="10px 0 0 0">
-            {postsFromMedium.map((post) => (
-              <Post key={post.title} {...post} external />
-            ))}
-          </SpacedWrapper>
+            <SpacedWrapper margin="10px 0 0 0">
+              {postsFromMedium.map((post) => (
+                <Post key={post.title} {...post} external />
+              ))}
+            </SpacedWrapper>
 
-          <SpacedWrapper margin="60px 0 0 0">
-            <Newsletter />
-          </SpacedWrapper>
-        </TextWrapper>
-        <ImageWrapper>
-          <Plan width="400" height="400" />
-        </ImageWrapper>
-      </Wrapper>
-    </Layout>
+            <SpacedWrapper margin="60px 0 0 0">
+              <Newsletter />
+            </SpacedWrapper>
+          </TextWrapper>
+          <ImageWrapper>
+            <Plan width="400" height="400" />
+          </ImageWrapper>
+        </Wrapper>
+      </Layout>
+    </>
   );
 }

@@ -11,10 +11,6 @@ export function ThemeProvider({children}: Props) {
   const [currentLocalTheme, setCurrentLocalTheme] = useLocalTheme();
   const [theme, setTheme] = useState(currentLocalTheme);
 
-  useEffect(() => {
-    setTheme(currentLocalTheme);
-  }, [currentLocalTheme]);
-
   return (
     <ThemeContext.Provider value={{toggleTheme, currentTheme: theme}}>
       <StyledComponentsThemeProvider theme={themes[theme]}>

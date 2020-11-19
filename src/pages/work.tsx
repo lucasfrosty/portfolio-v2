@@ -38,19 +38,21 @@ export default function Blog() {
   const {shopify, firstI} = useWorkData();
 
   return (
-    <Layout paddingOverride="10px 30px 30px 30px">
+    <>
       <SEO title={t('work')} />
-      <Wrapper>
-        <TextWrapper>
-          <Title>{t('work')}</Title>
-          {[shopify, firstI].map((company) => (
-            <JobDetails company={company} key={company.name} />
-          ))}
-        </TextWrapper>
-        <ImageWrapper>
-          <Work width="550" height="550" />
-        </ImageWrapper>
-      </Wrapper>
-    </Layout>
+      <Layout paddingOverride="10px 30px 30px 30px">
+        <Wrapper>
+          <TextWrapper>
+            <Title>{t('work')}</Title>
+            {[shopify, firstI].map((company) => (
+              <JobDetails company={company} key={company.name} />
+            ))}
+          </TextWrapper>
+          <ImageWrapper>
+            <Work width="550" height="550" />
+          </ImageWrapper>
+        </Wrapper>
+      </Layout>
+    </>
   );
 }
