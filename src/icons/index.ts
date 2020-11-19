@@ -9,3 +9,4 @@ export {default as Calendar} from './calendar.svg';
 export {default as NewsletterIcon} from './newsletter-icon.svg';
 export {default as Cancel} from './cancel.svg';
 export {default as DisabledCircle} from './disabled-circle.svg';
+export {default as Info} from './info.svg';

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import {darken} from '../utilities/styles';
 import {NewsletterIcon} from '../icons';
 
-import {Card, Text, SpacedWrapper, Spinner, ErrorBanner} from '.';
+import {Card, Text, SpacedWrapper, Spinner, Banner} from '.';
 
 enum Id {
   Email = 'newsletter-email-field',
@@ -115,12 +115,12 @@ const Label = styled.label`
   }
 `;
 
-type RequestStatus = 'fetching' | 'fetched' | 'error';
+type RequestStatus = 'initial' | 'fetching' | 'fetched' | 'error';
 
 export function Newsletter() {
-  const [requestStatus, setRequestStatus] = useState<RequestStatus>('fetched');
+  const [requestStatus, setRequestStatus] = useState<RequestStatus>('initial');
   const [email, setEmail] = useState('');
-  const [errorMessageKey, setErrorMessageKey] = useState<string | null>(null);
+  const [messageKey, setMessageKey] = useState<string | null>(null);
   const {t, i18n} = useTranslation();
 
   const labels = {
@@ -128,13 +128,18 @@ export function Newsletter() {
   };
 
   const isFetching = requestStatus === 'fetching';
+  const isFetched = requestStatus === 'fetched';
+  const isError = requestStatus === 'error';
+
   const subscribeContent = isFetching ? <Spinner /> : t('subscribe');
 
-  const errorMessage = errorMessageKey ? t(errorMessageKey) : null;
+  const message = messageKey ? t(messageKey) : null;
 
-  const errorMarkup = requestStatus === 'error' && errorMessage && (
+  const bannerMarkup = (isError || isFetched) && message && (
     <SpacedWrapper margin="0 0 8px 0">
-      <ErrorBanner onClose={dismissErrorBanner}>{errorMessage}</ErrorBanner>
+      <Banner type={isError ? 'error' : 'info'} onClose={dismissErrorBanner}>
+        {message}
+      </Banner>
     </SpacedWrapper>
   );
 
@@ -142,7 +147,7 @@ export function Newsletter() {
     ? {
         'aria-busy': true,
         disabled: true,
-        'aria-live': 'polite',
+        'aria-live': 'polite' as any,
       }
     : null;
 
@@ -157,7 +162,7 @@ export function Newsletter() {
         style={{lineHeight: 1.3, width: '100%'}}
         margin="24px 0 0 0"
       >
-        {errorMarkup}
+        {bannerMarkup}
         <div>
           <Form onSubmit={handleSubmit}>
             <Label htmlFor={Id.Email}>
@@ -183,7 +188,7 @@ export function Newsletter() {
   );
 
   function dismissErrorBanner() {
-    setErrorMessageKey(null);
+    setMessageKey(null);
   }
 
   function handleEmailChange(event: ChangeEvent<HTMLInputElement>) {
@@ -226,12 +231,12 @@ export function Newsletter() {
 
     setEmail('');
     setRequestStatus('error');
-    setErrorMessageKey(errorMessageSubscriptionKey);
+    setMessageKey(errorMessageSubscriptionKey);
   }
 
   function handleSuccess() {
     setEmail('');
     setRequestStatus('fetched');
-    setErrorMessageKey(null);
+    setMessageKey('thanksForSubscribing');
   }
 }

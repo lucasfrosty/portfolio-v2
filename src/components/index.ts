@@ -13,4 +13,4 @@ export {Divider} from './divider';
 export {Newsletter} from './newsletter';
 export {Card} from './card';
 export {Spinner} from './spinner';
-export {ErrorBanner} from './error-banner';
+export {Banner} from './banner';

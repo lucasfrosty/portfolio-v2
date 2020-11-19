@@ -1,5 +1,6 @@
 {
   "invalidEmail": "Invalid email",
+  "thanksForSubscribing": "Thanks for subscribing!",
   "emailAlreadySubscribed": "Email already subscribed.",
   "unexpectedError": "Unexpected error, please try again.",
   "newsletterDescription": "Subscribe to get notified by email about a new post.",
