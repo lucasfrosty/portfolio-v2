@@ -1,17 +1,17 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import {isSSR} from './constants';
 
 export function useLocalStorage<T>(
   key: string,
   initialValue: T,
 ): [T, (value: T) => void] {
-  const [storedValue, setStoredValue] = useState<T>(() => {
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      return initialValue;
+  const [storedValue, setStoredValue] = useState<T>(initialValue);
+
+  useEffect(() => {
+    if (!isSSR) {
+      setStoredValue(getValue());
     }
-  });
+  }, [isSSR]);
 
   function setValue(value: T) {
     try {
@@ -22,6 +22,15 @@ export function useLocalStorage<T>(
       window.localStorage.setItem(key, JSON.stringify(valueToStore));
     } catch (error) {
       throw new Error(error);
+    }
+  }
+
+  function getValue() {
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      return initialValue;
     }
   }
 
