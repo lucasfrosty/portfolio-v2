@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import {useLocation} from '@reach/router';
 
 import {Route} from '../utilities/routes';
-import {globalWrapperMargin} from '../utilities/styles';
 
 import {SettingsButton} from './settings-button';
 
@@ -17,7 +16,6 @@ interface LinkProperties {
 
 export const Navbar = styled.nav`
   font-size: 16px;
-  padding: 1.45rem 1.0875rem;
   display: flex;
   min-height: 40;
   align-items: center;
@@ -92,7 +90,7 @@ export function Header() {
   ];
 
   return (
-    <Navbar style={globalWrapperMargin}>
+    <Navbar>
       <div>
         {links.map(({content, url, isActive}) => (
           <StyledLink key={url} to={url} isActive={isActive}>

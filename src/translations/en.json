@@ -1,4 +1,12 @@
 {
+  "invalidEmail": "Invalid email",
+  "emailAlreadySubscribed": "Email already subscribed.",
+  "unexpectedError": "Unexpected error, please try again.",
+  "newsletterDescription": "Subscribe to get notified by email about a new post.",
+  "unsubcribe": "Unsubscribe whenever you want.",
+  "subscribe": "Subscribe",
+  "yourEmail": "Your email",
+  "mediumPosts": "Medium posts (pt-BR only)",
   "settingsButtonLabel": "Open settings menu",
   "darkMode": "Dark mode",
   "lightMode": "Light mode",

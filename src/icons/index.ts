@@ -5,3 +5,7 @@ export {default as Moon} from './moon.svg';
 export {default as Sun} from './sun.svg';
 export {default as Brazil} from './brazil.svg';
 export {default as UK} from './uk.svg';
+export {default as Calendar} from './calendar.svg';
+export {default as NewsletterIcon} from './newsletter-icon.svg';
+export {default as Cancel} from './cancel.svg';
+export {default as DisabledCircle} from './disabled-circle.svg';

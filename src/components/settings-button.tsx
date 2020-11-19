@@ -7,42 +7,13 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components';
 
 import {Settings, Moon, Sun, Brazil, UK} from '../icons';
-import {breakPointsInPx} from '../utilities/styles';
 import {useTheme} from '../utilities/theme';
 
 import {Toggle} from './toggle';
 import {Popover} from './popover';
+import {UnstyledButton} from './unstyled-button';
 
 import './toggle.css';
-
-const ResetedButton = styled.button.attrs((props) => ({
-  'aria-label': props['aria-label'],
-}))`
-  border: none;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  overflow: visible;
-  cursor: pointer;
-
-  background: transparent;
-
-  color: inherit;
-  font: inherit;
-
-  line-height: normal;
-
-  &:active {
-    outline: none;
-  }
-
-  -webkit-font-smoothing: inherit;
-  -moz-osx-font-smoothing: inherit;
-
-  -webkit-appearance: none;
-  max-height: 32px;
-  z-index: 10;
-`;
 
 const Wrapper = styled.span`
   display: flex;
@@ -55,20 +26,9 @@ const Wrapper = styled.span`
 const SettingsIconWrapper = styled.div`
   display: flex;
   align-items: center;
+
   path {
-    fill: #fff;
-  }
-
-  @media only screen and (max-width: ${breakPointsInPx.aboutMe}px) {
-    path {
-      fill: ${(props) => props.theme.text};
-    }
-  }
-
-  @media only screen and (min-width: 1550px) {
-    path {
-      fill: ${(props) => props.theme.text};
-    }
+    fill: ${(props) => props.theme.text};
   }
 `;
 
@@ -112,7 +72,7 @@ export function SettingsButton() {
   const isEnglish = i18n.language === 'en';
 
   const activator = (
-    <ResetedButton
+    <UnstyledButton
       role="button"
       onClick={() => setIsActive((prev) => !prev)}
       aria-label={t('settingsButtonLabel')}
@@ -120,7 +80,7 @@ export function SettingsButton() {
       <SettingsIconWrapper>
         <Settings />
       </SettingsIconWrapper>
-    </ResetedButton>
+    </UnstyledButton>
   );
 
   return (

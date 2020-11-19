@@ -50,3 +50,12 @@ export function useDateTransformer() {
     return t('DateRange.yearPluralMonthPlural', counts);
   };
 }
+
+// for this to work, dates from gatsby will need to always return as YYYY-DD-MM
+export function formatGatsbyDateFormatToBlogFormat(dateAsString: string) {
+  const [year, day, month] = dateAsString.split('-').map(Number);
+
+  // month index in javascript starts at 0 (yea you're reading this correctly)
+  // so i need to subtract by one to comply with that
+  return new Date(year, month - 1, day);
+}

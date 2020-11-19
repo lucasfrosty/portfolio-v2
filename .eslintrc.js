@@ -14,6 +14,7 @@ module.exports = {
     'import/external-module-folders': ['node_modules', 'packages'],
   },
   rules: {
+    'no-warning-comments': false,
     'react/jsx-pascal-case': 0,
     '@shopify/jsx-prefer-fragment-wrappers': 0,
     'eslint-comments/no-unlimited-disable': 0,

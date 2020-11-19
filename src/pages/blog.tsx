@@ -1,18 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useTranslation, Trans} from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
-import {Layout, Text, Post, SpacedWrapper, Title, SEO} from '../components';
-import {posts} from '../utilities/posts';
+import {
+  Layout,
+  Post,
+  SpacedWrapper,
+  Title,
+  SEO,
+  SecondHeader,
+  Newsletter,
+} from '../components';
+import {postsFromMedium, useLocalizedPosts} from '../utilities/posts';
 import {Plan} from '../icons';
+import {formatGatsbyDateFormatToBlogFormat} from '../utilities/dates';
+import {addFullPathToSubpath} from '../utilities/routes';
 
 const ImageWrapper = styled.div`
   z-index: 1;
   margin: auto;
 
   @media only screen and (max-width: 1200px) {
-    margin-bottom: 30px;
-
     > svg {
       width: 350px;
       height: 350px;
@@ -27,6 +35,10 @@ const ImageWrapper = styled.div`
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
+
+  @media only screen and (max-width: 1000px) {
+    justify-content: center;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -34,21 +46,8 @@ const TextWrapper = styled.div`
 `;
 
 export default function Blog() {
-  const {t, i18n} = useTranslation();
-
-  const textAboutTranslation = i18n.language === 'en' && (
-    <span>
-      But if you don&apos;t speak Portuguese and still want to check out my
-      posts, you can use the google translator for that, i&apos;m confident it
-      works well enough to understand the core concepts the articles talk about.
-    </span>
-  );
-
-  const mediumLink = (
-    <a href="https://medium.com/@lucasfrosty" rel="noreferrer" target="_blank">
-      Medium
-    </a>
-  );
+  const {t} = useTranslation();
+  const postsFromGatsby = useLocalizedPosts();
 
   return (
     <Layout>
@@ -56,21 +55,30 @@ export default function Blog() {
       <Wrapper>
         <TextWrapper>
           <Title>Blog</Title>
-          <Text>
-            <Trans i18nKey="whyMedium">
-              I&apos;m too lazy to implement a blog myself so i&apos;ll be doing
-              my posts on {mediumLink}.
-            </Trans>
-          </Text>
 
-          <Text style={{margin: '20px 0'}}>
-            {t('reasonToWriteInPortuguese')} {textAboutTranslation}
-          </Text>
-
-          <SpacedWrapper margin="40px 0 0 0">
-            {posts.map((post) => (
-              <Post key={post.title} {...post} />
+          <SpacedWrapper margin="10px 0 80px 0">
+            {postsFromGatsby.map(({title, slug, date}) => (
+              <Post
+                key={title}
+                title={title}
+                url={addFullPathToSubpath(slug)}
+                date={formatGatsbyDateFormatToBlogFormat(date)}
+              />
             ))}
+          </SpacedWrapper>
+
+          <SecondHeader style={{lineHeight: 1.3}} margin="12px 0">
+            {t('mediumPosts')}
+          </SecondHeader>
+
+          <SpacedWrapper margin="10px 0 0 0">
+            {postsFromMedium.map((post) => (
+              <Post key={post.title} {...post} external />
+            ))}
+          </SpacedWrapper>
+
+          <SpacedWrapper margin="60px 0 0 0">
+            <Newsletter />
           </SpacedWrapper>
         </TextWrapper>
         <ImageWrapper>

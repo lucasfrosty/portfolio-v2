@@ -1,10 +1,55 @@
+import {graphql, useStaticQuery} from 'gatsby';
+import {useTranslation} from 'react-i18next';
+
+// Blog posts
+export const postsQuery = graphql`
+  query {
+    allMarkdownRemark {
+      nodes {
+        frontmatter {
+          date(formatString: "YYYY-DD-MM")
+          slug
+          title
+        }
+      }
+    }
+  }
+`;
+
+// TODO: Find a plugin to generate the schema type definitions
+interface PostsQueryType {
+  allMarkdownRemark: {
+    nodes: {
+      frontmatter: {
+        date: string;
+        slug: string;
+        title: string;
+      };
+    }[];
+  };
+}
+
+export function useLocalizedPosts() {
+  const {i18n} = useTranslation();
+  const {
+    allMarkdownRemark: {nodes: postsFromGatsby},
+  } = useStaticQuery<PostsQueryType>(postsQuery);
+
+  const postsFromGatsbyAtCurrentLocale = postsFromGatsby
+    .map(({frontmatter}) => frontmatter)
+    .filter(({slug}) => slug.includes(`/${i18n.language}/`));
+
+  return postsFromGatsbyAtCurrentLocale;
+}
+
+// Medium posts
 export interface MediumPost {
   url: string;
   title: string;
   date: Date;
 }
 
-export const posts: MediumPost[] = [
+export const postsFromMedium: MediumPost[] = [
   {
     url:
       'https://medium.com/jaguaribetech/introdu%C3%A7%C3%A3o-ao-redux-usando-apenas-javascript-6d6d55bd9be4',
