@@ -25,7 +25,7 @@ Muita gente se confunde na hora de falar o que é JavaScript e o ECMAScript e mu
 
 **ECMA** é uma sigla que significa _European Computer Manufacturers Association_, que nada mais é do que uma organização sem fins lucrativos responsável por desenvolver padrões e suas documentações. Basicamente eu diria que eles são tipo um ISO. Ah, em 1994 eles mudaram seu nome e se tornaram a [ECMA internacional](http://www.ecma-international.org/), o que faz sentido uma vez que os padrões criados ultrapassaram as fronteiras européias.
 
-E, em 1996, foi essa organização que o Netscape escolheu para submeter as especificações do JavaScript, então a partir daí o ECMAScript foi criado e suas especificações ficam salvas em um documento chamado [ECMA-262](https://tc39.es/ecma262/).
+E, em 1996, foi essa organização que o Netscape escolheu para submeter as especificações do JavaScript. Então, a partir daí, o ECMAScript foi criado e suas especificações ficam salvas em um documento chamado [ECMA-262](https://tc39.es/ecma262/).
 
 Então pra resumir:
 
