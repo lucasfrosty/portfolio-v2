@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Helmet} from 'react-helmet';
 import {useTranslation} from 'react-i18next';
 import {createGlobalStyle} from 'styled-components';
@@ -30,6 +30,37 @@ export const GlobalStyleComponent = createGlobalStyle`
 
 export function GlobalStyle() {
   const {i18n} = useTranslation();
+
+  useEffect(() => {
+    const script1 = document.createElement('script');
+
+    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-RX1S5565FQ';
+    script1.async = true;
+
+    document.body.appendChild(script1);
+
+    return () => {
+      document.body.removeChild(script1);
+    };
+  }, []);
+
+  useEffect(() => {
+    const script2 = document.createElement('script');
+
+    script2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){window.dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RX1S5565FQ');
+    `;
+
+    document.body.appendChild(script2);
+
+    return () => {
+      document.body.removeChild(script2);
+    };
+  }, []);
 
   return (
     <>
