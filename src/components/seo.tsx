@@ -39,9 +39,6 @@ export function SEO({description = '', meta = [], title, pathname}: Props) {
 
   return (
     <Helmet
-      htmlAttributes={{
-        lang: i18n.language,
-      }}
       title={title}
       titleTemplate={`${site.siteMetadata.title} | %s`}
       link={
