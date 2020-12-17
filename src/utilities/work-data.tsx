@@ -90,21 +90,21 @@ export function useWorkData() {
     descriptions: [t('ShopifyDescription.first'), secondDescription],
     jobPositions: [
       {
-        name: 'Senior Web Developer',
+        name: 'Senior Frontend Developer',
         place: t('remote'),
         startDate: new Date(2020, 6),
         endDate: new Date(),
         isPresent: true,
       },
       {
-        name: 'Web Developer',
+        name: 'Frontend Developer',
         place: 'Ottawa, Ontario',
         startDate: new Date(2019, 0),
         endDate: new Date(2020, 5),
         isPresent: false,
       },
       {
-        name: 'Front End Developer Intern',
+        name: 'Frontend Developer Intern',
         place: 'Ottawa, Ontario',
         startDate: new Date(2018, 5),
         endDate: new Date(2018, 11),
@@ -119,7 +119,7 @@ export function useWorkData() {
     descriptions: [t('1STiDescription.first')],
     jobPositions: [
       {
-        name: 'Front End Developer Intern',
+        name: 'Frontend Developer Intern',
         place: 'João Pessoa, Paraíba',
         startDate: new Date(2017, 7),
         endDate: new Date(2018, 2),
