@@ -66,7 +66,7 @@ export function GlobalStyle() {
     <>
       <Helmet htmlAttributes={{lang: i18n.language}}>
         <link
-          href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800"
           rel="stylesheet"
         />
       </Helmet>
