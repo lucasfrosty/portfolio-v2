@@ -10,7 +10,7 @@ import React from 'react';
 export const onRenderBody = ({setHeadComponents, setPostBodyComponents}) => {
   setHeadComponents([
     <script
-      asyncs
+      async
       src="https://www.googletagmanager.com/gtag/js?id=G-RX1S5565FQ"
     ></script>,
   ]);
