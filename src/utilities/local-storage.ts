@@ -1,5 +1,4 @@
-import {useEffect, useState} from 'react';
-import {isSSR} from './constants';
+import {useState} from 'react';
 
 export function useLocalStorage<T>(
   key: string,

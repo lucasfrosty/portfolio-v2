@@ -1,8 +1,6 @@
 import {createContext, useContext} from 'react';
-
-import {noop} from './other';
 import {useLocalStorage} from './local-storage';
-import {darken} from './styles';
+import {noop} from './other';
 
 export interface ThemeProperties {
   primary: string;

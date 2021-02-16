@@ -4,7 +4,7 @@ import FontFaceObserver from 'fontfaceobserver';
 const provider = new FontFaceObserver('Baloo 2');
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function FontFaceProvider({children}: Props) {
@@ -20,5 +20,5 @@ export function FontFaceProvider({children}: Props) {
     return null;
   }
 
-  return children;
+  return children as React.ReactElement;
 }
