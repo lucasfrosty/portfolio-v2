@@ -8,7 +8,7 @@ import {i18n} from '../utilities/i18n';
 import {useCurrentThemeProperties} from '../utilities/theme';
 import {Calendar} from '../icons';
 
-import {Text} from './text';
+import {Text} from './Text';
 
 const ComponentWrapper = styled.div`
   margin-bottom: 20px;

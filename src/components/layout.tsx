@@ -5,8 +5,8 @@ import {AppProvider} from '../foundations';
 import '../utilities/i18n';
 
 import {Header} from './header';
-import {SocialMedias} from './social-medias';
-import {GlobalStyle} from './global-style';
+import {SocialMedias} from './SocialMedias';
+import {GlobalStyle} from './GlobalStyle';
 
 interface Props {
   children: React.ReactNode;

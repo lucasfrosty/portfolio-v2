@@ -7,7 +7,7 @@ interface Props {
   url: string;
 }
 
-export function PostSwitchCard({url}: Props) {
+export function PostLanguageSwitchCard({url}: Props) {
   const {t} = useTranslation();
   const urlLanguage = url.includes('/en/') ? 'en' : 'pt';
 

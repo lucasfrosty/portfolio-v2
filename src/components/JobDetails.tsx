@@ -10,7 +10,7 @@ import {
   useDateTransformer,
 } from '../utilities/dates';
 
-import {Text} from './text';
+import {Text} from './Text';
 
 interface Props {
   company: Company;

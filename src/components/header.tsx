@@ -6,7 +6,7 @@ import {useLocation} from '@reach/router';
 
 import {Route} from '../utilities/routes';
 
-import {SettingsButton} from './settings-button';
+import {SettingsButton} from './SettingsButton';
 
 interface LinkProperties {
   content: string;

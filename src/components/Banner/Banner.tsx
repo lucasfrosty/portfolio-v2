@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import {Cancel, DisabledCircle, Info} from '../icons';
 
-import {UnstyledButton} from './unstyled-button';
+import {UnstyledButton} from './UnstyledButton';
 
 const ErrorBannerWrapper = styled.div<{type: Props['type']}>`
   padding: 12px;

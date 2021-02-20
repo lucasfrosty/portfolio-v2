@@ -9,9 +9,9 @@ import styled from 'styled-components';
 import {Settings, Moon, Sun, Brazil, UK} from '../icons';
 import {useTheme} from '../utilities/theme';
 
-import {Toggle} from './toggle';
+import {Toggle} from './Toggle';
 import {Popover} from './popover';
-import {UnstyledButton} from './unstyled-button';
+import {UnstyledButton} from './UnstyledButton';
 
 import './toggle.css';
 

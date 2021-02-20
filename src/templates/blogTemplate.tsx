@@ -7,7 +7,7 @@ import {Layout, Newsletter, SEO, SpacedWrapper} from '../components';
 
 import './blog-template.css';
 import {useLocation} from '@reach/router';
-import {PostSwitchCard} from '../components';
+import {PostLanguageSwitchCard} from '../components';
 
 const Wrapper = styled.div`
   margin: auto;
@@ -130,7 +130,7 @@ export default function Template({
       <Layout>
         <Wrapper>
           {isLanguageDifferentThanPostLanguage && (
-            <PostSwitchCard url={frontmatter.slug} />
+            <PostLanguageSwitchCard url={frontmatter.slug} />
           )}
           <Title>{frontmatter.title}</Title>
           <PostWrapper dangerouslySetInnerHTML={{__html: html}} />
