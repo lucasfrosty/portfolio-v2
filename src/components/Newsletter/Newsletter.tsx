@@ -3,10 +3,10 @@ import addToMailchimp from 'gatsby-plugin-mailchimp';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components';
 
-import {darken} from '../utilities/styles';
-import {NewsletterIcon} from '../icons';
+import {darken} from '../../utilities/styles';
+import {NewsletterIcon} from '../../icons';
 
-import {Card, Text, SpacedWrapper, Spinner, Banner} from '.';
+import {Card, Text, SpacedWrapper, Spinner, Banner} from '..';
 
 enum Id {
   Email = 'newsletter-email-field',

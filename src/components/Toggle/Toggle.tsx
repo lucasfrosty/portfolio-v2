@@ -6,9 +6,11 @@
 /* eslint-disable */
 import React, {PureComponent} from 'react';
 import classNames from 'classnames';
-import {Moon, Sun} from '../icons';
+import {Moon, Sun} from '../../icons';
 
 import {InputHTMLAttributes, ReactNode} from 'react';
+
+import './Toggle.css';
 
 export interface ToggleIcons {
   checked?: ReactNode;

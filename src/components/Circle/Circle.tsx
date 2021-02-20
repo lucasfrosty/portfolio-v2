@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {useCurrentThemeProperties} from '../utilities/theme';
+import {useCurrentThemeProperties} from '../../utilities/theme';
 
 interface Props {
   size: number;

@@ -4,9 +4,9 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components';
 import {useLocation} from '@reach/router';
 
-import {Route} from '../utilities/routes';
+import {Route} from '../../utilities/routes';
 
-import {SettingsButton} from './SettingsButton';
+import {SettingsButton} from '../SettingsButton';
 
 interface LinkProperties {
   content: string;

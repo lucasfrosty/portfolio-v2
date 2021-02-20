@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {Cancel, DisabledCircle, Info} from '../icons';
+import {Cancel, DisabledCircle, Info} from '../../icons';
 
-import {UnstyledButton} from './UnstyledButton';
+import {UnstyledButton} from '../UnstyledButton';
 
 const ErrorBannerWrapper = styled.div<{type: Props['type']}>`
   padding: 12px;

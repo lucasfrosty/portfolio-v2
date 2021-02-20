@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {AppProvider} from '../foundations';
-import '../utilities/i18n';
+import {AppProvider} from '../../foundations';
+import '../../utilities/i18n';
 
-import {Header} from './header';
-import {SocialMedias} from './SocialMedias';
-import {GlobalStyle} from './GlobalStyle';
+import {Header} from '../Header';
+import {SocialMedias} from '../SocialMedias';
+import {GlobalStyle} from '../GlobalStyle';
 
 interface Props {
   children: React.ReactNode;

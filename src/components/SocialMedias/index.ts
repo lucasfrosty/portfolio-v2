@@ -1,0 +1,1 @@
+export {SocialMedias} from './SocialMedias';

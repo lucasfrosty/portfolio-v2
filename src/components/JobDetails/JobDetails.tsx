@@ -3,14 +3,14 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
 
-import {Company, JobPosition} from '../utilities/work-data';
-import {capitalize} from '../utilities/string';
+import {Company, JobPosition} from '../../utilities/work-data';
+import {capitalize} from '../../utilities/string';
 import {
   monthDifferenceBetweenDates,
   useDateTransformer,
-} from '../utilities/dates';
+} from '../../utilities/dates';
 
-import {Text} from './Text';
+import {Text} from '../Text';
 
 interface Props {
   company: Company;

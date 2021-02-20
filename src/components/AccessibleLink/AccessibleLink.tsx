@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Img, {FixedObject} from 'gatsby-image';
 import {OutboundLink} from 'gatsby-plugin-google-analytics';
 
-import {VisuallyHidden} from './VisuallyHidden';
+import {VisuallyHidden} from '../VisuallyHidden';
 
 export interface Props {
   fixed: FixedObject;

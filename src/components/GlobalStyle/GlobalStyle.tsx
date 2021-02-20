@@ -3,7 +3,7 @@ import {Helmet} from 'react-helmet';
 import {useTranslation} from 'react-i18next';
 import {createGlobalStyle} from 'styled-components';
 
-import {darken} from '../utilities/styles';
+import {darken} from '../../utilities/styles';
 
 export const GlobalStyleComponent = createGlobalStyle`
   body {

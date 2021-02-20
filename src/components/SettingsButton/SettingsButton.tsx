@@ -6,14 +6,12 @@ import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components';
 
-import {Settings, Moon, Sun, Brazil, UK} from '../icons';
-import {useTheme} from '../utilities/theme';
+import {Settings, Moon, Sun, Brazil, UK} from '../../icons';
+import {useTheme} from '../../utilities/theme';
 
-import {Toggle} from './Toggle';
-import {Popover} from './popover';
-import {UnstyledButton} from './UnstyledButton';
-
-import './toggle.css';
+import {Toggle} from '../Toggle';
+import {Popover} from '../Popover';
+import {UnstyledButton} from '../UnstyledButton';
 
 const Wrapper = styled.span`
   display: flex;

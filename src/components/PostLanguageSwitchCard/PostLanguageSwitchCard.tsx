@@ -1,7 +1,7 @@
 import {Link} from 'gatsby';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {Card} from './card';
+import {Card} from '../Card';
 
 interface Props {
   url: string;

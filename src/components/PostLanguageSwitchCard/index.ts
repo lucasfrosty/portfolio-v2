@@ -1,0 +1,1 @@
+export {PostLanguageSwitchCard} from './PostLanguageSwitchCard';

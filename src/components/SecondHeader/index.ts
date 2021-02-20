@@ -1,0 +1,1 @@
+export {SecondHeader} from './SecondHeader';
