@@ -176,7 +176,7 @@ export default function AboutMe() {
   /* eslint-disable */
   const translatedDescription2 = (
     <Trans i18nKey="description2">
-      I'm from Brazil but currently i'm based in Ottawa, Canada working at
+      I'm from Brazil but currently i'm based in Toronto, Canada working at
       <Link target="_blank" to={shopifyLink}>
         Shopify
       </Link>
