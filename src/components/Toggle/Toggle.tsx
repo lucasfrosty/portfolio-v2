@@ -5,10 +5,9 @@
 
 /* eslint-disable */
 import React, {PureComponent} from 'react';
+import type {InputHTMLAttributes, ReactNode} from 'react';
 import classNames from 'classnames';
 import {Moon, Sun} from '../../icons';
-
-import {InputHTMLAttributes, ReactNode} from 'react';
 
 import './Toggle.css';
 

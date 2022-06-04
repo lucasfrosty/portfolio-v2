@@ -211,7 +211,7 @@ export function Newsletter() {
         handleSuccess();
       }
     } catch (error) {
-      throw new Error(error);
+      throw new Error(error as string);
     }
   }
 

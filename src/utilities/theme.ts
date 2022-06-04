@@ -49,7 +49,7 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
 
 const LOCAL_STORAGE_KEY = 'lucas_frosty_blog_theme';
 export function useLocalTheme() {
-  return useLocalStorage<ThemeMode>(LOCAL_STORAGE_KEY, 'lightMode');
+  return useLocalStorage<ThemeMode>(LOCAL_STORAGE_KEY, 'darkMode');
 }
 
 interface ContextType {

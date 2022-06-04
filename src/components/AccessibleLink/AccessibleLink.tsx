@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Img, {FixedObject} from 'gatsby-image';
+import Img from 'gatsby-image';
 import {OutboundLink} from 'gatsby-plugin-google-analytics';
+import type {FixedObject} from 'gatsby-image';
 
 import {VisuallyHidden} from '../VisuallyHidden';
 

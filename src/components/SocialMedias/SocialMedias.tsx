@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {graphql, useStaticQuery} from 'gatsby';
 
-import {AccessibleLink, AccessibleLinkProps} from '../AccessibleLink';
+import {AccessibleLink} from '../AccessibleLink';
+import type {AccessibleLinkProps} from '../AccessibleLink';
 
 const SocialWrapper = styled.div`
   position: fixed;

@@ -18,7 +18,6 @@ interface Props {
 }
 
 export function SEO({description = '', meta = [], title, pathname}: Props) {
-  const {i18n} = useTranslation();
   const {site} = useStaticQuery(
     graphql`
       query {

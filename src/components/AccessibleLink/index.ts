@@ -1,1 +1,2 @@
-export {AccessibleLink, Props as AccessibleLinkProps} from './AccessibleLink';
+export {AccessibleLink} from './AccessibleLink';
+export type {Props as AccessibleLinkProps} from './AccessibleLink';

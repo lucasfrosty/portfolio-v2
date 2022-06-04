@@ -1,5 +1,5 @@
-import {Link} from 'gatsby';
 import React from 'react';
+import {Link} from 'gatsby';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components';
 import {useLocation} from '@reach/router';

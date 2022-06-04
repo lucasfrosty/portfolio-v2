@@ -1,6 +1,7 @@
 import React from 'react';
 import {useTranslation, Trans} from 'react-i18next';
-import Img, {FixedObject} from 'gatsby-image';
+import Img from 'gatsby-image';
+import type {FixedObject} from 'gatsby-image';
 import {Link, graphql, useStaticQuery} from 'gatsby';
 import styled from 'styled-components';
 

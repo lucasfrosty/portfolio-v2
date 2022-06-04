@@ -3,7 +3,7 @@ import {Link} from 'gatsby';
 import styled from 'styled-components';
 import {OutboundLink} from 'gatsby-plugin-google-analytics';
 
-import {MediumPost} from '../../utilities/posts';
+import type {MediumPost} from '../../utilities/posts';
 import {i18n} from '../../utilities/i18n';
 import {useCurrentThemeProperties} from '../../utilities/theme';
 import {Calendar} from '../../icons';
