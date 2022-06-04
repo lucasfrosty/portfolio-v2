@@ -134,9 +134,6 @@ export default function Template({
           )}
           <Title>{frontmatter.title}</Title>
           <PostWrapper dangerouslySetInnerHTML={{__html: html}} />
-          <SpacedWrapper margin="32px 0 0 0">
-            <Newsletter />
-          </SpacedWrapper>
         </Wrapper>
       </Layout>
     </>

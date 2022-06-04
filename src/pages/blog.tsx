@@ -77,10 +77,6 @@ export default function Blog() {
                 <Post key={post.title} {...post} external />
               ))}
             </SpacedWrapper>
-
-            <SpacedWrapper margin="60px 0 0 0">
-              <Newsletter />
-            </SpacedWrapper>
           </TextWrapper>
           <ImageWrapper>
             <Plan width="400" height="400" />
