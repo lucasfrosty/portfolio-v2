@@ -10,7 +10,6 @@ export {Title} from './Title';
 export {JobDetails} from './JobDetails';
 export {SecondHeader} from './SecondHeader';
 export {Divider} from './Divider';
-export {Newsletter} from './Newsletter';
 export {Card} from './Card';
 export {Spinner} from './Spinner';
 export {Banner} from './Banner';

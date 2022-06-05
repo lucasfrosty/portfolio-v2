@@ -22,20 +22,6 @@ export const Navbar = styled.nav`
   justify-content: space-between;
 `;
 
-const halfBorderBottom = `
-  &::after {
-    background-color: ${(props: any) => props.theme.primary};
-    bottom: 0;
-    content: '';
-    display: block;
-    height: 3px;
-    left: 30%;
-    position: absolute;
-    transform: translate(-50%,0);
-    width: 50%;
-  }
-`;
-
 const StyledLink = styled(({isActive, ...props}) => <Link {...props} />)`
   color: ${(props) => props.theme.link};
   text-decoration: none;
@@ -56,8 +42,6 @@ const StyledLink = styled(({isActive, ...props}) => <Link {...props} />)`
     color: ${(props) => props.theme.link};
     text-decoration: none;
   }
-
-  ${(props) => (props.isActive ? halfBorderBottom : null)}
 
   @media only screen and (max-width: 400px) {
     font-size: 13px;

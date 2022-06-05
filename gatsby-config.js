@@ -47,13 +47,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-mailchimp',
-      options: {
-        endpoint: process.env.MAILCHIMP_NEWSLETTER_API_URL,
-        timeout: 3500,
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/posts`,
