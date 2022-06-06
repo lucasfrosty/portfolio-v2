@@ -1,6 +1,6 @@
 import React from 'react';
 import {FixedObject} from 'gatsby-image';
-import {useTranslation} from 'react-i18next';
+import {useTranslation, Trans} from 'react-i18next';
 import {useStaticQuery, graphql, Link} from 'gatsby';
 
 export interface JobPosition {
@@ -9,13 +9,13 @@ export interface JobPosition {
   endDate: Date;
   place: string;
   isPresent: boolean;
+  description?: (string | React.ReactNode)[];
 }
 
 export interface Company {
   name: string;
   logo: FixedObject;
   jobPositions: JobPosition[];
-  descriptions: (string | React.ReactNode)[];
 }
 
 export const workDataQuery = graphql`
@@ -79,7 +79,7 @@ export function useWorkData() {
 
   const secondDescription = (
     <>
-      {t('ShopifyDescription.second')} {profilesLink}, {localDeliveryLink},{' '}
+      {t('ShopifyDescriptionJr.second')} {profilesLink}, {localDeliveryLink},{' '}
       {offsetAppLink}, {returnLabelsLink}.
     </>
   );
@@ -87,24 +87,40 @@ export function useWorkData() {
   const shopify: Company = {
     name: 'Shopify',
     logo: ShopifyLogo.childImageSharp.fixed,
-    descriptions: [t('ShopifyDescription.first'), secondDescription],
     jobPositions: [
       {
-        name: 'Senior Frontend Developer',
+        name: 'Senior Front End Developer',
         place: t('remote'),
         startDate: new Date(2020, 6),
         endDate: new Date(),
         isPresent: true,
+        description: [
+          t('ShopifyDescriptionSr.first'),
+          <div>
+            <Trans i18nKey="ShopifyDescriptionSr.second">
+              Getting Management responsibilities with a few direct report.
+              Check it out my{' '}
+              <Link
+                target="_blank"
+                to="https://managerreadme.com/readme/lucasfrosty"
+              >
+                Manager README
+              </Link>{' '}
+              for more details.
+            </Trans>
+          </div>,
+        ],
       },
       {
-        name: 'Frontend Developer',
+        name: 'Front End Developer',
         place: 'Ottawa, Ontario',
         startDate: new Date(2019, 0),
         endDate: new Date(2020, 5),
         isPresent: false,
+        description: [t('ShopifyDescriptionJr.first'), secondDescription],
       },
       {
-        name: 'Frontend Developer Intern',
+        name: 'Front End Developer Intern',
         place: 'Ottawa, Ontario',
         startDate: new Date(2018, 5),
         endDate: new Date(2018, 11),
@@ -116,9 +132,9 @@ export function useWorkData() {
   const firstI: Company = {
     name: '1STi',
     logo: FirstILogo.childImageSharp.fixed,
-    descriptions: [t('1STiDescription.first')],
     jobPositions: [
       {
+        description: [t('1STiDescription.first')],
         name: 'Frontend Developer Intern',
         place: 'João Pessoa, Paraíba',
         startDate: new Date(2017, 7),

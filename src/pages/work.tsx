@@ -40,7 +40,7 @@ export default function Blog() {
   return (
     <>
       <SEO title={t('work')} />
-      <Layout paddingOverride="10px 30px 30px 30px">
+      <Layout>
         <Wrapper>
           <TextWrapper>
             <Title>{t('work')}</Title>

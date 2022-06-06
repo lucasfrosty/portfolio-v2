@@ -13,6 +13,8 @@ export interface ThemeProperties {
   cardShadow: string;
   subscriptionButtonBorder(): string;
   inverseBorder: string;
+  circleColor: string;
+  descriptionColor: string;
 }
 
 export type ThemeMode = 'darkMode' | 'lightMode';
@@ -30,6 +32,8 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
       return this.primary;
     },
     inverseBorder: 'rgba(255, 255, 255, 0.8)',
+    circleColor: '#fff',
+    descriptionColor: '#000',
   },
   darkMode: {
     background: '#282c35',
@@ -44,6 +48,8 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
       return this.border;
     },
     inverseBorder: 'rgba(255, 255, 255, 0.9)',
+    circleColor: '#b5b5b5',
+    descriptionColor: 'rgba(255, 255, 255, 0.8)',
   },
 };
 

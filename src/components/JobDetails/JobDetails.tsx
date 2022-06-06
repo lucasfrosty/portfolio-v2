@@ -38,9 +38,34 @@ const PositionsWrapper = styled.div`
   line-hight: 1.2;
   margin-top: 15px;
 
-  & > div {
-    margin-bottom: 15px;
+  & > div:not(:last-child) {
+    margin-bottom: 10px;
   }
+`;
+
+const PositionWrapper = styled.div`
+  border-left: 1px solid ${(props) => props.theme.border};
+  margin-left: -26px;
+  padding-left: 26px;
+  position: relative;
+
+  &:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: ${(props) => props.theme.circleColor};
+    border: 1px solid ${(props) => props.theme.border};
+    border-radius: 50%;
+    position: absolute;
+    left: -7.6px;
+    top: 1px;
+    z-index: 999;
+  }
+`;
+
+const Description = styled.p`
+  color: ${(props) => props.theme.descriptionColor};
+  font-size: 14.5px;
 `;
 
 export function JobDetails({company}: Props) {
@@ -61,7 +86,7 @@ export function JobDetails({company}: Props) {
         <Text caption>{calculateTimeAtCompany(company.jobPositions)}</Text>
         <PositionsWrapper>
           {company.jobPositions.map((position) => (
-            <div key={position.startDate.toString()}>
+            <PositionWrapper key={position.startDate.toString()}>
               <Text highlight style={{fontSize: 16}}>
                 {position.name}
               </Text>
@@ -73,19 +98,21 @@ export function JobDetails({company}: Props) {
                 })}
               </Text>
               <Text caption>{position.place}</Text>
-            </div>
+              {position.description && (
+                <div style={{marginTop: 10}}>
+                  {position.description.map((description, index) => (
+                    // the company description data is static so we won't remove/add/sort the array at all
+                    // so because of that, using index in this case is fine
+                    // eslint-disable-next-line react/no-array-index-key
+                    <Description key={`company-description-${index}`}>
+                      {description}
+                    </Description>
+                  ))}
+                </div>
+              )}
+            </PositionWrapper>
           ))}
         </PositionsWrapper>
-        <div style={{fontSize: 15, marginTop: 20}}>
-          {company.descriptions.map((description, index) => (
-            // the company description data is static so we won't remove/add/sort the array at all
-            // so because of that, using index in this case is fine
-            // eslint-disable-next-line react/no-array-index-key
-            <p key={`company-description-${index}`}>
-              <Text caption>{description}</Text>
-            </p>
-          ))}
-        </div>
       </CompanyInfoWrapper>
     </JobDetailsWrapper>
   );

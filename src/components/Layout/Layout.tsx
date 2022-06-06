@@ -15,14 +15,14 @@ interface Props {
 
 const ContentWrapper = styled.div`
   position: relative;
-  margin-top: 70px;
+  margin-top: 60px;
 
   @media only screen and (max-width: 470px) {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   @media only screen and (max-width: 1000px) {
-    margin-bottom: 40px !important;
+    margin-bottom: 25px !important;
   }
 `;
 

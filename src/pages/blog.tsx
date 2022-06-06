@@ -9,7 +9,6 @@ import {
   Title,
   SEO,
   SecondHeader,
-  Newsletter,
 } from '../components';
 import {postsFromMedium, useLocalizedPosts} from '../utilities/posts';
 import {Plan} from '../icons';

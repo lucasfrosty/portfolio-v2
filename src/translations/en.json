@@ -15,7 +15,7 @@
   "lightMode": "Light mode",
   "portuguese": "Portuguese",
   "english": "English",
-  "description": "Hello! I'm Lucas. Front end developer.",
+  "description": "Hello! I'm Lucas. Senior Front End Developer.",
   "description2": "I'm from Brazil but currently i'm based in Toronto, Canada working at <1>Shopify.</1>",
   "description3": "I'm passionate about programming and also a UX enthusiast, always trying to learn and advocate for the best practices on both worlds.",
   "skills": "Skills",
@@ -39,7 +39,11 @@
     "yearSingularMonthPlural": "{{yearCount}} year and {{monthCount}} months",
     "yearSingularMonthSingular": "{{yearCount}} year and {{monthCount}} month"
   },
-  "ShopifyDescription": {
+  "ShopifyDescriptionSr": {
+    "first": "Now in the Shopify Fulfillment Network (SFN) org, I'm co-leading a team called SFN Front End Foundations, responsible for raising Front End standards across the SFN org, and collaborating with the UX team to improve existing experiences on all apps in the SFN ecosystem.",
+    "second": "Getting management responsibilities by technical and career mentorship for a few direct reports. For more details, check out my <2>Manager README</2>."
+  },
+  "ShopifyDescriptionJr": {
     "first": "Working on the Shipping team, my primary job is to help developers and UXers to plan and develop user interfaces for more than a million merchants around the world. The main technologies i use are React, GraphQL, Apollo, Typescript and Polaris. Also, when necessary, i work in the back-end using Ruby on Rails, but my primary focus is on the front-end.",
     "second": "Some projects i was proudly a part of: "
   },
