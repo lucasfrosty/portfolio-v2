@@ -1,4 +1,5 @@
 import {createContext, useContext} from 'react';
+import {isSSR} from './constants';
 import {useLocalStorage} from './local-storage';
 import {noop} from './other';
 
@@ -53,9 +54,20 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
   },
 };
 
+function getThemeModeFromSystem(): ThemeMode {
+  if (!isSSR) {
+    return 'darkMode';
+  }
+
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
+    .matches;
+  return prefersDarkMode ? 'darkMode' : 'lightMode';
+}
+
 const LOCAL_STORAGE_KEY = 'lucas_frosty_blog_theme';
 export function useLocalTheme() {
-  return useLocalStorage<ThemeMode>(LOCAL_STORAGE_KEY, 'darkMode');
+  const initialThemeMode = getThemeModeFromSystem();
+  return useLocalStorage<ThemeMode>(LOCAL_STORAGE_KEY, initialThemeMode);
 }
 
 interface ContextType {
