@@ -55,7 +55,7 @@ export const themes: Record<ThemeMode, ThemeProperties> = {
 };
 
 function getThemeModeFromSystem(): ThemeMode {
-  if (!isSSR) {
+  if (isSSR) {
     return 'darkMode';
   }
 
